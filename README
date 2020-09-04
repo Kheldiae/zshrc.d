@@ -1,2 +1,4 @@
 In this directory, place zsh files to be loaded before zsh is run, in the .zshrc context.
 Any file that doesn't end with .zsh will be ignored (like this readme).
+
+The ~/.zshrc file can be based on zshrc.template, included here. ANTIGEN_PATH has to point to the antigen.zsh file for the local Antigen install, and ZSH_CONFIG_PATH has to point to this directory.
