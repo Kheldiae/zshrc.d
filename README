@@ -1,0 +1,2 @@
+In this directory, place zsh files to be loaded before zsh is run, in the .zshrc context.
+Any file that doesn't end with .zsh will be ignored (like this readme).

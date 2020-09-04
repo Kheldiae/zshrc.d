@@ -1,0 +1,13 @@
+#!/bin/zsh
+#
+# Auto-start configuration script for the Z Shell, modular edition.
+#
+
+ANTIGEN_PATH=/usr/share/zsh/share/antigen.zsh
+ZSH_CONFIG_PATH=$HOME/.zshrc.d
+
+# Run through zshrc modules and load them.
+for file in $ZSH_CONFIG_PATH/*.zsh
+do
+    . $file
+done
