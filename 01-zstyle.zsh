@@ -12,7 +12,7 @@ zstyle ':completion:*' matcher-list     '' \
                                         'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 zstyle ':completion:*' menu             select=long-list select=0 select=0
 zstyle ':completion:*' original         true
-zstyle ':completion:*' select-prompt    $'%{\e[38;5;232;48;5;144m%} SCROLL %{\e[38;5;144;48;5;232m%}%{\e[38;5;232;48;5;67m%}%{\e[38;5;253;48;5;67m%} At %p %{\e[K\e[0m%}'
+zstyle ':completion:*' select-prompt    $'%{\e[38;5;232;48;5;81m%} SELECT %{\e[38;5;81;48;5;232m%}%{\e[38;5;232;48;5;67m%}%{\e[38;5;253;48;5;67m%} At %p %{\e[K\e[0m%}'
 zstyle ':completion:*' verbose          true
 zstyle ':compinstall'  filename         '/home/karim/.zshrc'
 

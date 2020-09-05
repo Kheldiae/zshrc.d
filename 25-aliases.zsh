@@ -16,8 +16,8 @@ alias vim="nvim"                    # Switched to Neovim :D
 alias goyo='kitty-color $c_kitty_goyo_bg 1 nvim -u ~/.config/nvim/goyo.vim'
                                     # a simpler editor.
 
-alias ssh='kitty-color $c_kitty_ssh_bg $c_kitty_opacity kitty +kitten ssh $@'
-                                    # blue-tint ssh term and send kitty terminfo
+alias ssh='kitty-color $c_kitty_ssh_bg $c_kitty_opacity ssh $@'
+                                    # blue-tint ssh term
 
 alias open="xdg-open"               # Think different.
 
