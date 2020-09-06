@@ -8,7 +8,7 @@ export SAVEHIST=1000
 export PATH="$HOME/.gem/ruby/bin:$HOME/.yarn/bin:$HOME/.cargo/bin:$HOME/.local/bin:/opt/flutter/bin:$PATH"
 export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
                             # Needed for home-manager
-export SSH_AUTO_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
                             # Enable Yubikey ssh authentication
 export VISUAL=nvim          # Default editor, should have done this long ago
 
