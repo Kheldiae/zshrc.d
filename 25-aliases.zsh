@@ -40,3 +40,11 @@ alias icat="kitty +kitten icat"     # kitty's image viewer
 alias up="TERM=xterm-256color up"   # up (nix) doesn't work with xterm-kitty
 
 alias yelp="noglob yelp"
+
+alias ssh-cremi="ssh -YCt4 kvergnes@sshproxy.emi.u-bordeaux.fr ssh -YCt trelawney zsh"
+                                    # Just zoom past the proxy and connect to mcgonagall
+
+alias ghci="TERM=xterm-256color LANG=C.UTF-8 ghci"
+                                    # Fixes TERM var and locale
+
+alias reboot-efi-setup="sudo efibootmgr -n 0010 && sudo reboot now"

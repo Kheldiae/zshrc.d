@@ -7,6 +7,7 @@ source $ANTIGEN_PATH
 
 antigen use oh-my-zsh
 antigen theme thesola10/nix-honukai-zsh
+#antigen theme romkatv/powerlevel10k
 
 antigen bundle MichaelAquilina/zsh-you-should-use
 antigen bundle MichaelAquilina/zsh-auto-notify

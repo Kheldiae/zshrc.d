@@ -2,5 +2,5 @@
 
 export acoders=~/AlphaCoders
 export epi=~/Epitech
-export not="/home/karim/Documents/Notes"
-export nixtemplates="/home/karim/Documents/NixOS/templates"
+export not="/var/home/karim/Documents/Notes"
+export nixtemplates="/var/home/karim/Documents/NixOS/templates"

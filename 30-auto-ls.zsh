@@ -3,9 +3,26 @@
 #
 
 function auto-ls-readme() {
-    [[ -f README     ]] && bat --paging=never README
-    [[ -f README.md  ]] && bat --paging=never README.md
-    [[ -f README.rst ]] && bat --paging=never README.rst
+    find . -maxdepth 1 -iname "README*" -exec bat --paging=never \{\} \;
 }
 
-export AUTO_LS_COMMANDS=(readme "$(which lsd) --group-dirs=first" git-status "/bin/echo")
+function auto-ls-nix-sh() {
+    [[ -v NIX_BUILD_SHELL ]] && return 0
+    scanpath=$PWD
+    while [[ "$(df $scanpath --output=target | tail -n 1)" == "$(df $PWD --output=target | tail -n 1)" ]] && [[ $scanpath != / ]]
+    do
+        find "$scanpath" -maxdepth 1 -mindepth 1 \
+                     -type f         \
+                     -readable       \
+                     -name shell.nix \
+        | grep . 2>&1 >/dev/null && \
+        {
+            echo -n "A Nix shell workspace was found. ($scanpath/shell.nix) Load? [y/N] "
+            read -q && nix-shell $scanpath/shell.nix
+            return 0
+        }
+        scanpath="$(readlink -f "$scanpath/..")"
+    done
+}
+
+export AUTO_LS_COMMANDS=(readme "$(which lsd) --group-dirs=first" git-status nix-sh "/bin/echo")
