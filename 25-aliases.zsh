@@ -47,4 +47,3 @@ alias ssh-cremi="ssh -YCt4 kvergnes@sshproxy.emi.u-bordeaux.fr ssh -YCt trelawne
 alias ghci="TERM=xterm-256color LANG=C.UTF-8 ghci"
                                     # Fixes TERM var and locale
 
-alias reboot-efi-setup="sudo efibootmgr -n 0010 && sudo reboot now"

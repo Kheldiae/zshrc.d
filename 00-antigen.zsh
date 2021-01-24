@@ -6,8 +6,7 @@
 source $ANTIGEN_PATH
 
 antigen use oh-my-zsh
-antigen theme thesola10/nix-honukai-zsh
-#antigen theme romkatv/powerlevel10k
+#antigen theme thesola10/nix-honukai-zsh
 
 antigen bundle MichaelAquilina/zsh-you-should-use
 antigen bundle MichaelAquilina/zsh-auto-notify
@@ -23,6 +22,8 @@ antigen bundle chisui/zsh-nix-shell
 antigen bundle zuxfoucault/colored-man-pages_mod
 
 antigen bundle desyncr/auto-ls
+
+antigen theme romkatv/powerlevel10k
 
 antigen apply
 
