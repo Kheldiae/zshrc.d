@@ -47,3 +47,5 @@ alias ssh-cremi="ssh -YCt4 kvergnes@sshproxy.emi.u-bordeaux.fr ssh -YCt trelawne
 alias ghci="TERM=xterm-256color LANG=C.UTF-8 ghci"
                                     # Fixes TERM var and locale
 
+alias btrfs-ducks="btrfs filesystem du -s --human-readable"
+                                    # Uses btrfs version of du
