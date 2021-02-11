@@ -10,9 +10,9 @@ function auto-ls-readme() {
 }
 
 function auto-ls-nix-sh() {
-    [[ -v NIX_BUILD_SHELL ]] && return 0
-    [[ ${WIDGET} == accept-line ]] && return 0
-    [[ -d /nix ]] || return 0
+    [[ -v NIX_BUILD_SHELL ]]        && return 0 # Already in shell
+    [[ ${WIDGET} == accept-line ]]  && return 0 # newline widget broken
+    [[ -d /nix ]]                   || return 0 # Nix isn't installed
     scanpath=$PWD
     while [[ "$(df $scanpath --output=target | tail -n 1)" == "$(df $PWD --output=target | tail -n 1)" ]] && [[ $scanpath != / ]]
     do
