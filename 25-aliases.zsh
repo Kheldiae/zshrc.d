@@ -37,15 +37,17 @@ alias userctl="systemctl --user"    # Manage user-mode systemd un
 
 alias icat="kitty +kitten icat"     # kitty's image viewer
 
-alias up="TERM=xterm-256color up"   # up (nix) doesn't work with xterm-kitty
-
 alias yelp="noglob yelp"
 
 alias ssh-cremi="ssh -YCt4 kvergnes@sshproxy.emi.u-bordeaux.fr ssh -YCt trelawney zsh"
                                     # Just zoom past the proxy and connect to mcgonagall
 
-alias ghci="TERM=xterm-256color LANG=C.UTF-8 ghci"
-                                    # Fixes TERM var and locale
+alias ghci="LANG=C.UTF-8 ghci"
+                                    # Fixes locale for Nix ghci
 
 alias btrfs-ducks="btrfs filesystem du -s --human-readable"
                                     # Uses btrfs version of du
+
+alias calc="qalc"
+
+aliases[=]='noglob qalc'            # = shorthand for calculator

@@ -11,6 +11,7 @@ function auto-ls-readme() {
 
 function auto-ls-nix-sh() {
     [[ -v NIX_BUILD_SHELL ]] && return 0
+    [[ ${WIDGET} == accept-line ]] && return 0
     scanpath=$PWD
     while [[ "$(df $scanpath --output=target | tail -n 1)" == "$(df $PWD --output=target | tail -n 1)" ]] && [[ $scanpath != / ]]
     do
