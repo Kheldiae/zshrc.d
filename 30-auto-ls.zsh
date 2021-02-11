@@ -4,6 +4,7 @@
 
 function auto-ls-reset() { [[ ${WIDGET} == accept-line ]] && clear; }
 function auto-ls-echo() { echo; }
+function auto-ls-lsd() { lsd --group-dirs=first; }
 
 function auto-ls-readme() {
     find . -maxdepth 1 -iname "README*" -exec bat --paging=never \{\} \;
@@ -30,4 +31,4 @@ function auto-ls-nix-sh() {
     done
 }
 
-export AUTO_LS_COMMANDS=(reset readme "$(which lsd) --group-dirs=first" git-status nix-sh echo)
+export AUTO_LS_COMMANDS=(reset readme lsd git-status nix-sh echo)
