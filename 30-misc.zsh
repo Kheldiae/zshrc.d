@@ -8,5 +8,7 @@ bindkey -e                  # Bind Home and End keys
 
 if (( ${+TMUX} ))
 then
-    export TERM=screen-256color
-fi                          # On tmux, Vim doesn't use 256color by default.
+    export TERM=screen-256color         # 256color by default
+    vim +"Tmuxline airline" +q >/dev/null 2>&1
+                                        # Apply Vim airline to tmux
+fi
