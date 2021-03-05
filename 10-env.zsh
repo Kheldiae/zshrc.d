@@ -20,3 +20,5 @@ export AUTO_NOTIFY_IGNORE=(ipython tmux nix-shell kitty-color goyo ranger mpv ne
 export MAKEFLAGS=-j8        # Go nuts, cowboy.
 export RUST_SRC_PATH=/usr/local/src/rust/src
                             # Rust source path for Racer autocomplete
+export GOPATH=$HOME/.local  # Lands Go packages right in PATH and prevents
+                            # that fugly ~/go dir

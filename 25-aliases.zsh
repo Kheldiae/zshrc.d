@@ -36,8 +36,6 @@ alias trash="gio trash"             # Use desktop trash in the terminal
 
 alias userctl="systemctl --user"    # Manage user-mode systemd units
 
-alias icat="kitty +kitten icat"     # kitty's image viewer
-
 alias yelp="noglob yelp"
 
 alias ssh-cremi="ssh -YCt4 kvergnes@sshproxy.emi.u-bordeaux.fr ssh -YCt trelawney zsh"
