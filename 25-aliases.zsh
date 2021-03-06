@@ -13,10 +13,10 @@ alias type="type -f"                # Enable func printing on zsh type
 
 alias vim="nvim"                    # Switched to Neovim :D
 
-alias goyo='kitty-color $c_kitty_goyo_bg 1 nvim -u ~/.config/nvim/goyo.vim'
+alias goyo='kitty-color goyo_bg 1 nvim -u ~/.config/nvim/goyo.vim'
                                     # a simpler editor.
 
-alias ssh='kitty-color $c_kitty_ssh_bg $c_kitty_opacity ssh $@'
+alias ssh='kitty-color ssh_bg $c_kitty_opacity ssh $@'
                                     # blue-tint ssh term
 
 alias open="xdg-open"               # Think different.

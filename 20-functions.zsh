@@ -3,9 +3,18 @@
 #
 
 function kitty-color() {
+    function __get_color() {
+        if [[ $(< $XDG_RUNTIME_DIR/theme) == "light" ]]
+        then
+            echo $colors_light[$1]
+        else
+            echo $colors_dark[$1]
+        fi
+    }
+
     if (( ${+KITTY_WINDOW_ID} ))
     then
-        kitty @ set-colors background=$1
+        kitty @ set-colors background=$(__get_color $1)
         kitty @ set-background-opacity $2
 
         shift 2
@@ -20,9 +29,10 @@ function kitty-color() {
 }
 
 function fetch() {
-    neofetch --kitty $c_fetch_image --size 240 --color_blocks off \
+    neofetch --kitty ${c_fetch_image[`< $XDG_RUNTIME_DIR/theme`]}   \
+                                    --size 240 --color_blocks off   \
                                                --disable resolution \
-                                               --disable term_font \
+                                               --disable term_font  \
                                                "${c_fetch_argextra[@]}"
 }
 
