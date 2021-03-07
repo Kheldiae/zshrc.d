@@ -7,8 +7,5 @@
 ANTIGEN_PATH=/usr/share/zsh/share/antigen.zsh
 ZSH_CONFIG_PATH=$HOME/.zshrc.d
 
-# Run through zshrc modules and load them.
-for file in $ZSH_CONFIG_PATH/*.zsh
-do
-    . $file
-done
+# The following line loads all configuration from the zshrc.d directory.
+. $ZSH_CONFIG_PATH/*.zsh

@@ -28,6 +28,11 @@ function kitty-color() {
     fi
 }
 
+function bat() {
+    export BAT_THEME=$([[ `< $XDG_RUNTIME_DIR/theme` == "light" ]] && <<< "Monokai Extended Light")
+    $(which -p bat) "$@"
+}
+
 function fetch() {
     neofetch --kitty ${c_fetch_image[`< $XDG_RUNTIME_DIR/theme`]}   \
                                     --size 240 --color_blocks off   \
