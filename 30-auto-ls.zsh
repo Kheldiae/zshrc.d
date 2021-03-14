@@ -7,7 +7,10 @@ function auto-ls-echo() { echo; }
 function auto-ls-lsd() { lsd --group-dirs=first; }
 
 function auto-ls-readme() {
-    find . -maxdepth 1 -iname "README*" -exec bat --paging=never \{\} \;
+    for f in $(find . -maxdepth 1 -iname "README*")
+    do
+        bat --paging=never $f
+    done
 }
 
 function auto-ls-nix-sh() {

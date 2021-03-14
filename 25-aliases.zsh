@@ -48,4 +48,4 @@ alias ghci="LANG=C.UTF-8 ghci"
 
 alias calc="qalc"
 
-aliases[=]='noglob qalc'            # = shorthand for calculator
+aliases[=]='noglob qalc -c'         # = shorthand for calculator
