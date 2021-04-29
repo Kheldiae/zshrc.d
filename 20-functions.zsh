@@ -2,7 +2,7 @@
 # Function definitions in Z shell
 #
 
-function kitty-color() {
+function _kitty_color() {
     function __get_color() {
         if [[ $(< $XDG_RUNTIME_DIR/theme) == "light" ]]
         then
@@ -31,6 +31,10 @@ function kitty-color() {
 function bat() {
     export BAT_THEME=$([[ `< $XDG_RUNTIME_DIR/theme` == "light" ]] && <<< "Monokai Extended Light")
     $(which -p bat) "$@"
+}
+
+function duf() {
+    $(which -p duf) -theme "$(<$XDG_RUNTIME_DIR/theme)" "$@"
 }
 
 function fetch() {
