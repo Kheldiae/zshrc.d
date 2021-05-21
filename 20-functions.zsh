@@ -4,7 +4,7 @@
 
 function _kitty_color() {
     function __get_color() {
-        if [[ $(< $XDG_RUNTIME_DIR/theme) == "light" ]]
+        if [[ `< $XDG_RUNTIME_DIR/theme` == "light" ]]
         then
             echo $colors_light[$1]
         else
@@ -21,7 +21,7 @@ function _kitty_color() {
         "$@"
 
         kitty @ set-colors -a -c ~/.config/kitty/kitty.conf
-        kitty @ set-background-opacity $c_kitty_opacity
+        kitty @ set-background-opacity $c_kitty_opacity[`< $XDG_RUNTIME_DIR/theme`]
     else
         shift 2
         "$@"
@@ -42,7 +42,7 @@ function fetch() {
                                     --size 240 --color_blocks off   \
                                                --disable resolution \
                                                --disable term_font  \
-                                               "${c_fetch_argextra[@]}"
+                                               "$c_fetch_argextra[@]"
 }
 
 function ifetch() {
@@ -51,7 +51,7 @@ function ifetch() {
     neofetch --kitty $image --size 240 --color_blocks off \
                                        --disable resolution \
                                        --disable term_font \
-                                       $@
+                                       "$@"
 }
 
 function t() {
@@ -60,11 +60,11 @@ function t() {
 
 function '$'() {
     a=
-    while ! [[ "$a" =~ 'exit' ]]
+    while true
     do
         echo -n "$@> "
         read a
-        eval "$@ $a"
+        { [[ "$a" =~ 'exit' ]] && break; } || eval "$@ $a"
     done
 }                           # Turn any command into a prompt
 
@@ -75,9 +75,13 @@ function surf-md() {
     rm $TARGET
 }
 
-function qr-echo {
+function qr-echo() {
     QRFILE=$(mktemp "qr-echo.XXXXXXXXXX.png" --tmpdir)
     qrencode "$@" -o $QRFILE
     kitty +kitten icat $QRFILE
     rm $QRFILE
+}
+
+function is() {
+    builtin type -f "$@" | bat -lzsh --style numbers,snip
 }

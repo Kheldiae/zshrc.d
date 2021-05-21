@@ -16,7 +16,7 @@ alias vim="nvim"                    # Switched to Neovim :D
 alias goyo='_kitty_color goyo_bg 1 nvim -u ~/.config/nvim/goyo.vim'
                                     # a simpler editor.
 
-alias ssh='_kitty_color ssh_bg $c_kitty_opacity ssh $@'
+alias ssh='_kitty_color ssh_bg $c_kitty_opacity[`< $XDG_RUNTIME_DIR/theme`] ssh $@'
                                     # blue-tint ssh term
 
 alias open="xdg-open"               # Think different.
@@ -45,6 +45,8 @@ alias ghci="LANG=C.UTF-8 ghci"
                                     # Fixes locale for Nix ghci
 
 alias play="gst-play-1.0"
+
+alias ihs="jupyter console --kernel haskell"
 
 
 

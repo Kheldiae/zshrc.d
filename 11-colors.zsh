@@ -1,4 +1,5 @@
 declare -A c_fetch_image
+declare -A c_kitty_opacity
 
 declare -A colors_light colors_dark
 
@@ -6,7 +7,8 @@ c_fetch_image[dark]="$HOME/karemen.png"
 c_fetch_image[light]="$HOME/cup.png"
 c_fetch_argextra=(--colors 172 7 7 174 7 7)
 
-c_kitty_opacity="0.7"
+c_kitty_opacity[dark]="0.3"
+c_kitty_opacity[light]="0.6"
 
 colors_dark[goyo_bg]="#404552"
 colors_dark[ssh_bg]="#040454"
