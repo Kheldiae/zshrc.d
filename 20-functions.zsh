@@ -83,5 +83,5 @@ function qr-echo() {
 }
 
 function is() {
-    builtin type -f "$@" | bat -lzsh --style numbers,snip
+    builtin type -f "$@" | bat -lzsh --style numbers
 }

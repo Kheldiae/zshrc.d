@@ -9,7 +9,8 @@ function auto-ls-lsd() { lsd --group-dirs=first; }
 function auto-ls-readme() {
     for f in $(find . -maxdepth 1 -iname "README*")
     do
-        bat --style numbers,snip --paging=never $f
+        bat --style numbers,header --paging=never $f
+        echo
     done
 }
 
