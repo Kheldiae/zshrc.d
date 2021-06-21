@@ -45,20 +45,13 @@ function duf() {
 }
 
 function fetch() {
-    neofetch --kitty ${c_fetch_image[`< $XDG_RUNTIME_DIR/theme`]}   \
-                                    --size 240 --color_blocks off   \
-                                               --disable resolution \
-                                               --disable term_font  \
-                                               "$c_fetch_argextra[@]"
+    neofetch ${c_fetch_image[`< $XDG_RUNTIME_DIR/theme`]} "$c_fetch_argextra[@]"
 }
 
 function ifetch() {
     image=$1
     shift 1
-    neofetch --kitty $image --size 240 --color_blocks off \
-                                       --disable resolution \
-                                       --disable term_font \
-                                       "$@"
+    neofetch $image "$@"
 }
 
 function t() {
