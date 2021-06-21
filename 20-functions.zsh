@@ -33,6 +33,13 @@ function bat() {
     $(which -p bat) "$@"
 }
 
+function b() {
+    lang=$1
+
+    shift 1
+    bat -l$lang --style numbers "$@"
+}
+
 function duf() {
     $(which -p duf) -theme "$(<$XDG_RUNTIME_DIR/theme)" "$@"
 }

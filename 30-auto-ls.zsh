@@ -14,6 +14,15 @@ function auto-ls-readme() {
     done
 }
 
+function auto-ls-onefetch() {
+    if git status >/dev/null 2>&1
+    then
+        onefetch --image-backend kitty -i ~/Images/smd.png --no-color-palette
+        git status -s
+        echo
+    fi
+}
+
 function auto-ls-nix-sh() {
     [[ -v NIX_BUILD_SHELL ]]        && return 0 # Already in shell
     [[ ${WIDGET} == accept-line ]]  && return 0 # newline widget broken
@@ -35,4 +44,4 @@ function auto-ls-nix-sh() {
     done
 }
 
-export AUTO_LS_COMMANDS=(reset readme lsd git-status nix-sh echo)
+export AUTO_LS_COMMANDS=(reset readme onefetch lsd nix-sh echo)
