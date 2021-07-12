@@ -45,13 +45,13 @@ function duf() {
 }
 
 function fetch() {
-    neofetch ${c_fetch_image[`< $XDG_RUNTIME_DIR/theme`]} "$c_fetch_argextra[@]"
+    neofetch --source ${c_fetch_image[`< $XDG_RUNTIME_DIR/theme`]} "$c_fetch_argextra[@]"
 }
 
 function ifetch() {
     image=$1
     shift 1
-    neofetch $image "$@"
+    neofetch --source $image "$@"
 }
 
 function t() {
