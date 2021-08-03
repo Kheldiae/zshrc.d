@@ -17,7 +17,7 @@ function auto-ls-readme() {
 function auto-ls-onefetch() {
     if git status >/dev/null 2>&1
     then
-        onefetch --image-backend kitty -i ~/Images/smd.png --no-color-palette
+        onefetch --image-backend kitty -i $c_gitfetch_image --no-color-palette
         git status -s
         echo
     fi

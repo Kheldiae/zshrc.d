@@ -85,3 +85,11 @@ function qr-echo() {
 function is() {
     builtin type -f "$@" | bat -lzsh --style numbers
 }
+
+function dsd-play() {
+    dsf2flac -d -r 352800 -i $1 -o - 2>/dev/null \
+        | ffmpeg -i - -r 352800 -c pcm_s32le -f alsa hw:1
+}                           # Play back DSD files using DSD-over-PCM packing.
+                            # WARNING: May damage equipment and/or hearing if
+                            # played on unsupported hardware. Signal is not PCM
+                            # sound.

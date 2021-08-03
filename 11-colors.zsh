@@ -3,9 +3,11 @@ declare -A c_kitty_opacity
 
 declare -A colors_light colors_dark
 
-c_fetch_image[dark]="$HOME/karemen.png"
-c_fetch_image[light]="$HOME/cup.png"
+c_fetch_image[dark]="$HOME/.local/etc/fetch_image_dark.png"
+c_fetch_image[light]="$HOME/.local/etc/fetch_image_light.png"
 c_fetch_argextra=(--colors 172 7 7 174 7 7)
+
+c_gitfetch_image="$HOME/.local/etc/gitfetch_image.png"
 
 c_kitty_opacity[dark]="0.3"
 c_kitty_opacity[light]="0.6"

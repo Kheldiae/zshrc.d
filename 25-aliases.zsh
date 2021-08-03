@@ -44,12 +44,13 @@ alias ssh-cremi="ssh -YCt4 kvergnes@sshproxy.emi.u-bordeaux.fr ssh -YCt trelawne
 alias ghci="LANG=C.UTF-8 ghci"
                                     # Fixes locale for Nix ghci
 
-alias gitfetch="onefetch --image-backend kitty -i ~/Images/smd.png --no-color-palette"
+alias gitfetch="onefetch --image-backend kitty -i $c_gitfetch_image --no-color-palette"
 
 alias play="gst-play-1.0"
 
 alias ihs="jupyter console --kernel haskell"
 
+alias ino="arduino-cli"
 
 
 alias calc="qalc"
