@@ -2,9 +2,21 @@
 # Function definitions in Z shell
 #
 
+function _get_theme() {
+    if [[ -v DESKTOP_THEME ]]
+    then
+        echo $DESKTOP_THEME
+    elif [[ -f $XDG_RUNTIME_DIR/theme ]]
+    then
+        echo `< $XDG_RUNTIME_DIR/theme`
+    else
+        echo 'dark'
+    fi
+}
+
 function _kitty_color() {
     function __get_color() {
-        if [[ `< $XDG_RUNTIME_DIR/theme` == "light" ]]
+        if [[ `_get_theme` == "light" ]]
         then
             echo $colors_light[$1]
         else
@@ -29,7 +41,7 @@ function _kitty_color() {
 }
 
 function bat() {
-    export BAT_THEME=$([[ `< $XDG_RUNTIME_DIR/theme` == "light" ]] && <<< "Monokai Extended Light")
+    export BAT_THEME=$([[ `_get_theme` == "light" ]] && <<< "Monokai Extended Light")
     $(which -p bat) "$@"
 }
 
@@ -41,11 +53,11 @@ function b() {
 }
 
 function duf() {
-    $(which -p duf) -theme "$(<$XDG_RUNTIME_DIR/theme)" "$@"
+    $(which -p duf) -theme "$(_get_theme)" "$@"
 }
 
 function fetch() {
-    neofetch --source ${c_fetch_image[`< $XDG_RUNTIME_DIR/theme`]} "$c_fetch_argextra[@]"
+    neofetch --source ${c_fetch_image[`_get_theme`]} "$c_fetch_argextra[@]"
 }
 
 function ifetch() {
