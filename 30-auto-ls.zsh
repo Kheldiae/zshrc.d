@@ -24,7 +24,7 @@ function auto-ls-onefetch() {
 }
 
 function auto-ls-nix-sh() {
-    [[ -v NIX_BUILD_SHELL ]]        && return 0 # Already in shell
+    [[ -v NIX_SHELL_PACKAGES ]]     && return 0 # Already in shell
     [[ ${WIDGET} == accept-line ]]  && return 0 # newline widget broken
     [[ -d /nix ]]                   || return 0 # Nix isn't installed
     scanpath=$PWD
