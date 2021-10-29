@@ -15,7 +15,7 @@ export EDITOR=nvim
 export VISUAL=nvim          # Default editor, should have done this long ago
 
 export AUTO_NOTIFY_THRESHOLD=120
-export AUTO_NOTIFY_IGNORE=(ipython tmux nix-shell kitty-color goyo ranger mpv nethogs bat $AUTO_NOTIFY_IGNORE)
+export AUTO_NOTIFY_IGNORE=(ipython tmux nix-shell kitty-color goyo ranger mpv nethogs bat cd $AUTO_NOTIFY_IGNORE)
 
 export MAKEFLAGS=-j8        # Go nuts, cowboy.
 export RUST_SRC_PATH=/usr/local/src/rust/src
