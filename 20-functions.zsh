@@ -98,6 +98,10 @@ function is() {
     builtin type -f "$@" | bat -lzsh --style numbers
 }
 
+function port-cremi() {
+    $(which -p ssh) -4L "${2}:${1}:${2}" sshproxy.emi.u-bordeaux.fr -- tail -f /dev/null
+}
+
 function dsd-play() {
     dsf2flac -d -r 352800 -i $1 -o - 2>/dev/null \
         | ffmpeg -i - -r 352800 -c pcm_s32le -f alsa hw:1

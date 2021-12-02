@@ -38,9 +38,6 @@ alias userctl="systemctl --user"    # Manage user-mode systemd units
 
 alias yelp="noglob yelp"
 
-alias ssh-cremi="ssh -YCt4 kvergnes@sshproxy.emi.u-bordeaux.fr ssh -YCt trelawney zsh"
-                                    # Just zoom past the proxy and connect to trelawney
-
 alias ghci="LANG=C.UTF-8 ghci"
                                     # Fixes locale for Nix ghci
 
