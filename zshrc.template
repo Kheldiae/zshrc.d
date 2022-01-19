@@ -4,7 +4,6 @@
 #
 
 #TODO: edit those variables before use!
-ANTIGEN_PATH=/usr/share/zsh/share/antigen.zsh
 ZSH_CONFIG_PATH=$HOME/.zshrc.d
 
 # Run through zshrc modules and load them.
