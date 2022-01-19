@@ -2,6 +2,9 @@
 # System configuration for the Z shell, completion style
 #
 
+# cd on directory name
+setopt autocd
+
 zstyle ':completion:*' completer        _expand _complete _ignored _approximate
 zstyle ':completion:*' group-name       ''
 zstyle ':completion:*' insert-unambiguous true

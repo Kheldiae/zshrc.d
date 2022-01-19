@@ -12,7 +12,6 @@ zplug "MichaelAquilina/zsh-auto-notify"
 
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-history-substring-search"
 
 zplug "bilelmoussaoui/flatpak-zsh-completion"
 zplug "spwhitt/nix-zsh-completions"
@@ -26,13 +25,15 @@ zplug "desyncr/auto-ls"
 zplug "lib/termsupport",                    from:oh-my-zsh
 zplug "lib/key-bindings",                   from:oh-my-zsh
 zplug "lib/directories",                    from:oh-my-zsh
+zplug "lib/completion",                     from:oh-my-zsh
+zplug "lib/history",                        from:oh-my-zsh
 zplug "plugins/aliases",                    from:oh-my-zsh
 zplug "plugins/common-aliases",             from:oh-my-zsh
 
 
 if ! zplug check --verbose
 then
-    printf "Install zsh plugins? (this may take a while) "
+    printf "Install zsh plugins? (this may take a while) [y/N] "
     read -q && { echo; zplug install; }
 fi
 
