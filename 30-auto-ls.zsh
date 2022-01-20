@@ -27,6 +27,15 @@ function auto-ls-nix-sh() {
     [[ -v NIX_SHELL_PACKAGES ]]     && return 0 # Already in shell
     [[ ${WIDGET} == accept-line ]]  && return 0 # newline widget broken
     [[ -d /nix ]]                   || return 0 # Nix isn't installed
+
+    if ! ( find --version     | grep GNU \
+        && df --version       | grep GNU \
+        && readlink --version | grep GNU) >/dev/null 2>&1
+    then
+        echo "The Nix shell file scanner requires the GNU coreutils and findutils."
+        return 0
+    fi          # Wrong df, wrong find, or wrong readlink.
+
     scanpath=$PWD
     while [[ "$(df $scanpath --output=target | tail -n 1)" == "$(df $PWD --output=target | tail -n 1)" ]] && [[ $scanpath != / ]]
     do

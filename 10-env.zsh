@@ -2,6 +2,8 @@
 # Modifications to default environment in Z shell
 #
 
+[[ $(uname) == "Darwin" ]]  && IS_DARWIN=1  || IS_DARWIN=0
+
 export HISTFILE=~/.cache/zsh-history
 export HISTSIZE=1000
 export SAVEHIST=1000
@@ -18,7 +20,5 @@ export AUTO_NOTIFY_THRESHOLD=120
 export AUTO_NOTIFY_IGNORE=(ipython tmux nix-shell kitty-color goyo ranger mpv nethogs bat cd $AUTO_NOTIFY_IGNORE)
 
 export MAKEFLAGS=-j8        # Go nuts, cowboy.
-export RUST_SRC_PATH=/usr/local/src/rust/src
-                            # Rust source path for Racer autocomplete
 export GOPATH=$HOME/.local  # Lands Go packages right in PATH and prevents
                             # that fugly ~/go dir
