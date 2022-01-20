@@ -1,5 +1,5 @@
 #
-# Configuration for Antigen plugins on the Z shell
+# Configuration for plugins on the Z shell
 # Implies Nix installed, but works without.
 #
 
