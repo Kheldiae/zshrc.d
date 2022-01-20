@@ -9,6 +9,9 @@ function _get_theme() {
     elif [[ -f $XDG_RUNTIME_DIR/theme ]]
     then
         echo `< $XDG_RUNTIME_DIR/theme`
+    elif which -p defaults >/dev/null 2>&1
+    then
+        ( defaults read -g AppleInterfaceStyle 2>/dev/null || echo 'light' ) | tr '[:upper:]' '[:lower:]'
     else
         echo 'dark'
     fi

@@ -11,7 +11,8 @@ alias cp="cp --reflink=auto"        # under btrfs, privilege reflinks
 
 alias type="type -f"                # Enable func printing on zsh type
 
-alias vim="nvim"                    # Switched to Neovim :D
+alias vim="DESKTOP_THEME=`_get_theme` nvim"
+                                    # Switched to Neovim :D
 
 alias goyo='_kitty_color goyo_bg 1 nvim -u ~/.config/nvim/goyo.vim'
                                     # a simpler editor.
