@@ -60,7 +60,7 @@ function duf() {
 }
 
 function fetch() {
-    neofetch --source ${c_fetch_image[`_get_theme`]} "$c_fetch_argextra[@]"
+    neofetch --source ${c_fetch_image[`_get_theme`]}
 }
 
 function ifetch() {

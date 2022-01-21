@@ -16,9 +16,11 @@ export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 export EDITOR=nvim
 export VISUAL=nvim          # Default editor, should have done this long ago
 
-export AUTO_NOTIFY_THRESHOLD=120
-export AUTO_NOTIFY_IGNORE=(ipython tmux nix-shell kitty-color goyo ranger mpv nethogs bat cd $AUTO_NOTIFY_IGNORE)
 
 export MAKEFLAGS=-j8        # Go nuts, cowboy.
 export GOPATH=$HOME/.local  # Lands Go packages right in PATH and prevents
                             # that fugly ~/go dir
+
+
+AUTO_NOTIFY_THRESHOLD=120
+AUTO_NOTIFY_IGNORE+=(ipython tmux nix-shell kitty-color goyo ranger mpv nethogs bat cd)

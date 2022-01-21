@@ -40,14 +40,14 @@ function __resolve_dependencies() {
     exec zsh --no-rcs       # Bail out to rc-less zsh
 }
 
-if ! [[ -f $HOME/.cache/zsh_has_deps ]]
+if ! [[ -f $HOME/.zsh_has_deps ]]
 then
     __check_dependency lsd
     __check_dependency bat
     __check_dependency onefetch
     __check_dependency git
     __resolve_dependencies
-    touch $HOME/.cache/zsh_has_deps # Don't recheck every time
+    touch $HOME/.zsh_has_deps   # Don't recheck every time
 fi
 
 unfunction __check_dependency
