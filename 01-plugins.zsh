@@ -36,5 +36,13 @@ then
     read -q && { echo; zplug install; }
 fi
 
+# Powerlevel10k fast-prompt right before the heavy plugin-loading.
+# This is mostly cosmetic, but on slower systems it will also allow us to
+# start typing a command before zsh has finished loading.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
+then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 zplug load
 
