@@ -53,3 +53,5 @@ fi
 unfunction __check_dependency
 unfunction __print_missing_deps
 unfunction __resolve_dependencies
+
+unset __FAILED_DEPS
