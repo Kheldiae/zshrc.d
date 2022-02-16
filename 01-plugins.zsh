@@ -22,6 +22,8 @@ zplug "zuxfoucault/colored-man-pages_mod"
 
 zplug "desyncr/auto-ls"
 
+zplug "thesola10/zsh-comma-assistant"
+
 # Terminal title
 zplug "lib/termsupport",                    from:oh-my-zsh
 zplug "lib/key-bindings",                   from:oh-my-zsh
