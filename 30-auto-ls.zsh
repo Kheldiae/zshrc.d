@@ -39,10 +39,11 @@ function auto-ls-nix-sh() {
     scanpath=$PWD
     while [[ "$(df $scanpath --output=target | tail -n 1)" == "$(df $PWD --output=target | tail -n 1)" ]] && [[ $scanpath != / ]]
     do
+        timeout .2s \
         find "$scanpath" -maxdepth 1 -mindepth 1 \
                      -type f         \
                      -readable       \
-                     -name shell.nix \
+                     -name shell.nix 2>/dev/null \
         | grep . 2>&1 >/dev/null && \
         {
             echo -n "A Nix shell workspace was found. ($scanpath/shell.nix) Load? [y/N] "

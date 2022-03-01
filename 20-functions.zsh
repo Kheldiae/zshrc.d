@@ -98,7 +98,7 @@ function qr-echo() {
 }
 
 function is() {
-    builtin type -f "$@" | bat -lzsh --style numbers
+    builtin which "$@" | bat -lzsh --style numbers
 }
 
 function port-cremi() {
