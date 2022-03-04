@@ -101,8 +101,9 @@ function is() {
     builtin which "$@" | bat -lzsh --style numbers
 }
 
-function port-cremi() {
-    $(which -p ssh) -4L "${2}:${1}:${2}" sshproxy.emi.u-bordeaux.fr -- tail -f /dev/null
+function sport() {
+    echo "Now serving port ${2} to ${1}... (Ctrl+C to stop)"
+    $(which -p ssh) -NL "${2}:127.0.0.1:${2}" "${1}"
 }
 
 function dsd-play() {
