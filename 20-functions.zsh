@@ -8,7 +8,7 @@ function _get_theme() {
         echo $DESKTOP_THEME
     elif [[ -r $XDG_RUNTIME_DIR/theme ]]
     then
-        echo `head -n1 $XDG_RUNTIME_DIR/theme`
+        head -n1 $XDG_RUNTIME_DIR/theme | grep .
     elif ((IS_DARWIN))
     then
         ( defaults read -g AppleInterfaceStyle 2>/dev/null || echo 'light' ) | tr '[:upper:]' '[:lower:]'
