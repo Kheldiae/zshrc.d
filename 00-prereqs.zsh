@@ -5,7 +5,7 @@
 typeset -a __FAILED_DEPS
 
 function __check_dependency() {
-    if ! which -p "$1" >/dev/null
+    if ! which -p "$1" &>/dev/null
     then
         __FAILED_DEPS+="$1"
     fi

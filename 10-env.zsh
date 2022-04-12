@@ -2,7 +2,8 @@
 # Modifications to default environment in Z shell
 #
 
-[[ $(uname) == "Darwin" ]]  && IS_DARWIN=1  || IS_DARWIN=0
+[[ $(uname) == "Darwin" ]]  && IS_DARWIN=1 \
+                            || IS_DARWIN=0
 
 export HISTFILE=~/.cache/zsh-history
 export HISTSIZE=1000

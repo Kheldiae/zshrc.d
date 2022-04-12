@@ -15,7 +15,7 @@ function auto-ls-readme() {
 }
 
 function auto-ls-onefetch() {
-    if git status >/dev/null 2>&1
+    if git status &>/dev/null
     then
         onefetch --image-backend kitty -i $c_gitfetch_image --no-palette
         git status -s
@@ -30,7 +30,7 @@ function auto-ls-nix-sh() {
 
     if ! ( find --version     | grep GNU \
         && df --version       | grep GNU \
-        && readlink --version | grep GNU) >/dev/null 2>&1
+        && readlink --version | grep GNU) &>/dev/null
     then
         echo "The Nix shell file scanner requires the GNU coreutils and findutils."
         return 0
@@ -44,7 +44,7 @@ function auto-ls-nix-sh() {
                      -type f         \
                      -readable       \
                      -name shell.nix 2>/dev/null \
-        | grep . 2>&1 >/dev/null && \
+        | grep . &>/dev/null && \
         {
             echo -n "A Nix shell workspace was found. ($scanpath/shell.nix) Load? [y/N] "
             read -q && nix-shell $scanpath/shell.nix

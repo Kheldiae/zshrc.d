@@ -39,9 +39,6 @@ alias userctl="systemctl --user"    # Manage user-mode systemd units
 
 alias yelp="noglob yelp"
 
-alias ghci="LANG=C.UTF-8 ghci"
-                                    # Fixes locale for Nix ghci
-
 alias gitfetch="onefetch --image-backend kitty -i $c_gitfetch_image --no-color-palette"
 
 alias play="gst-play-1.0"

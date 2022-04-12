@@ -113,3 +113,10 @@ function dsd-play() {
                             # WARNING: May damage equipment and/or hearing if
                             # played on unsupported hardware. Signal is not PCM
                             # sound.
+
+if which -p nom &>/dev/null
+then
+    function nix-build()    { $(which -p nix-build) $@ |& nom; }
+    function nix-env()      { $(which -p nix-env) $@ |& nom; }
+    function nixos-rebuild(){ $(which -p nixos-rebuild) $@ |& nom; }
+fi
