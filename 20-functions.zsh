@@ -44,8 +44,8 @@ function _kitty_color() {
 }
 
 function bat() {
-    export BAT_THEME=$([[ `_get_theme` == "light" ]] && <<< "Monokai Extended Light")
-    $(which -p bat) "$@"
+    export BAT_THEME=$(if [[ `_get_theme` == "light" ]]; then <<< "gruvbox-light"; else <<< "gruvbox-dark"; fi)
+    $(which -p bat) --italic-text always "$@"
 }
 
 function b() {
