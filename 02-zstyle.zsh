@@ -19,6 +19,6 @@ zstyle ':completion:*' original         true
 zstyle ':completion:*' select-prompt    $'%{\e[38;5;232;48;5;81m%} SELECT %{\e[38;5;81;48;5;232m%}%{\e[38;5;232;48;5;67m%}%{\e[38;5;253;48;5;67m%} At %p %{\e[K\e[0m%}'
 zstyle ':completion:*' verbose          true
 zstyle ':completion:*' file-list        all
-zstyle ':compinstall'  filename         "$ZSH_CONFIG_PATH/01-zstyle.zsh"
+zstyle ':compinstall'  filename         "$ZSH_CONFIG_PATH/02-zstyle.zsh"
 
 autoload -Uz compinit       # Enables the smart completion engine configured above
