@@ -116,10 +116,19 @@ function __deps::check_optional() {
 
 if ! [[ -f $HOME/.zsh_has_deps ]]
 then
-    __deps::check   lsd      lsd
-    __deps::check   bat      bat
-    __deps::check   onefetch onefetch
-    __deps::check   git      git
+    __deps::check   lsd         lsd
+    __deps::check   bat         bat
+    __deps::check   onefetch    onefetch
+    __deps::check   git         git
+    __deps::check   perl        perl
+    __deps::check   grep        gnugrep
+    __deps::check   awk         gawk
+    __deps::check   sed         gnused
+    __deps::check   tar         gnutar
+    __deps::check   tput        ncurses
+    __deps::check   gzip        gzip
+    __deps::check   curl        curl
+    __deps::check   wget        wget
     __deps::resolve
     touch $HOME/.zsh_has_deps   # Don't recheck every time
 
