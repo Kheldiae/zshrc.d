@@ -36,7 +36,7 @@ function _kitty_color() {
         "$@"
 
         kitty @ set-colors -a -c ~/.config/kitty/kitty.conf
-        kitty @ set-background-opacity $c_kitty_opacity[`< $XDG_RUNTIME_DIR/theme`]
+        kitty @ set-background-opacity $c_kitty_opacity[`_get_theme`]
     else
         shift 2
         "$@"
