@@ -94,9 +94,7 @@ function install-deps() {
 
         read -q && >&2 echo \
             && {
-                for pkg in $__FAILED_DEPS
-                do nix-env -iA nixpkgs.$pkg
-                done
+            nix-env -iA ${:-nixpkgs.${^__FAILED_DEPS}}
             }   \
             && return       # Nix installed our deps
     fi
@@ -122,6 +120,7 @@ then
     __deps::check   git         git
     __deps::check   perl        perl
     __deps::check   grep        gnugrep
+    __deps::check   find        findutils
     __deps::check   awk         gawk
     __deps::check   sed         gnused
     __deps::check   tar         gnutar
