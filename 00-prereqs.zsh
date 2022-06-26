@@ -33,9 +33,7 @@ function __deps::resolve() {
         >&2 echo -n "Do you want to try loading the missing commands? [y/N] "
         read -q && >&2 echo \
             && {
-                for pkg in $__FAILED_DEPS
-                do nix-env -iA nixpkgs.$pkg
-                done
+            nix-env -iA ${:-nixpkgs.${^__FAILED_DEPS}}
             }   \
             && return       # Nix installed our deps
     fi
@@ -58,9 +56,7 @@ function __deps::resolve_optional() {
         >&2 echo -n "Do you want to try loading the missing commands? [y/N] "
         read -q && >&2 echo \
             && {
-                for pkg in $__FAILED_DEPS
-                do nix-env -iA nixpkgs.$pkg
-                done
+            nix-env -iA ${:-nixpkgs.${^__FAILED_DEPS}}
             }   \
             && return       # Nix installed our deps
         >&2 echo
@@ -90,7 +86,7 @@ function install-deps() {
         fi
         >&2 echo "The following dependencies will be installed:"
         __deps::print_missing
-        >&2 echo -n "Do you wish to install them using Nix? [Y/n]"
+        >&2 echo -n "Do you wish to install them using Nix? [Y/n] "
 
         read -q && >&2 echo \
             && {
@@ -112,6 +108,24 @@ function __deps::check_optional() {
     __deps::check   ,            comma
 }
 
+# Check if user cloned submodules, and ask if we can do it for them.
+# Git is a required dependency, so we don't need to check for that.
+function __deps::fetch_zplug() {
+    if ! [[ -r $ZSH_CONFIG_PATH/zplug/init.zsh ]]
+    then
+        >&2 echo "zplug could not be found, most likely because this repository's"
+        >&2 echo "submodules weren't cloned."
+        >&2 echo -n "Do you wish to try retrieving them? [Y/n] "
+
+        if ! (read -q && git -C $ZSH_CONFIG_PATH submodule update --init)
+        then
+            >&2 echo "This zsh config will not work without zplug."
+            >&2 echo "Run \`git submodule update --init\` in the config directory then try again."
+            exec zsh --no-rcs
+        fi
+    fi
+}
+
 if ! [[ -f $HOME/.zsh_has_deps ]]
 then
     __deps::check   lsd         lsd
@@ -129,13 +143,16 @@ then
     __deps::check   curl        curl
     __deps::check   wget        wget
     __deps::resolve
+    __deps::fetch_zplug
     touch $HOME/.zsh_has_deps   # Don't recheck every time
 
     __deps::check_optional
     __deps::resolve_optional
 fi
 
+
 unfunction __deps::resolve
 unfunction __deps::resolve_optional
+unfunction __deps::fetch_zplug
 
 unset __FAILED_DEPS
