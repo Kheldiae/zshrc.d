@@ -106,6 +106,7 @@ function __deps::check_optional() {
     __deps::check   nom          nix-output-monitor
     __deps::check   qalc         libqalculate
     __deps::check   ,            comma
+    __deps::check   pandoc       pandoc
 }
 
 # Check if user cloned submodules, and ask if we can do it for them.

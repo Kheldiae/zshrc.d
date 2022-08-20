@@ -2,8 +2,8 @@
 # System configuration for the Z shell, completion style
 #
 
-# cd on directory name
-setopt autocd
+# cd on directory name, comments on command line
+setopt autocd interactivecomments
 
 zstyle ':completion:*' completer        _expand _complete _ignored _approximate
 zstyle ':completion:*:*:*:*:descriptions' format '%F{blue}-- %d --%f'

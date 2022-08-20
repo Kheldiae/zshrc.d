@@ -55,6 +55,10 @@ function b() {
     bat -l$lang --style numbers "$@"
 }
 
+function pat() {
+    pandoc "$@" -w markdown | b markdown
+}
+
 function duf() {
     $(which -p duf) -theme "$(_get_theme)" "$@"
 }
@@ -70,7 +74,7 @@ function ifetch() {
 }
 
 function t() {
-    twurl -d "status=$1" /1.1/statuses/update.json > /dev/null
+    twurl -d "status=$1" /1.1/statuses/update.json &>/dev/null
 }                           # Tweet to @sola10_mp4 instantly
 
 function '$'() {

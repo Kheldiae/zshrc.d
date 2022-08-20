@@ -18,7 +18,8 @@ export EDITOR=nvim
 export VISUAL=nvim          # Default editor, should have done this long ago
 
 
-export MAKEFLAGS=-j8        # Go nuts, cowboy.
+export MAKEFLAGS=-j$(nproc --all)
+                            # Go nuts, cowboy.
 export GOPATH=$HOME/.local  # Lands Go packages right in PATH and prevents
                             # that fugly ~/go dir
 
