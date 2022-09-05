@@ -56,7 +56,7 @@ function b() {
 }
 
 function pat() {
-    pandoc "$@" -w markdown | b markdown
+    pandoc "$@" -w markdown | bat -l markdown --file-name "$1"
 }
 
 function duf() {

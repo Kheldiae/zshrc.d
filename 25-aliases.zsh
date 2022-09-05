@@ -45,6 +45,7 @@ alias play="gst-play-1.0"
 
 alias ihs="jupyter console --kernel haskell"
 alias icaml="jupyter console --kernel ocaml"
+alias ijava="jupyter console --kernel java"
 
 alias ino="arduino-cli"
 
