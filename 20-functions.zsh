@@ -110,6 +110,18 @@ function sport() {
     $(which -p ssh) -NL "${2}:127.0.0.1:${2}" "${1}"
 }
 
+function ijava() {
+    [ -f "$PWD/settings.gradle" ] && gradle build
+    local IJAVA_CLASSPATH
+    local jarfiles=(./*/build/libs/*.jar(N) ./build/libs/*.jar(N))
+    for file in $jarfiles
+    do
+        IJAVA_CLASSPATH="$file:$IJAVA_CLASSPATH"
+    done
+    IJAVA_CLASSPATH="$IJAVA_CLASSPATH" jupyter console --kernel java
+}                           # Invoke IJava Jupyter kernel with smart classpath
+                            # if we're in a Gradle workspace.
+
 function dsd-play() {
     dsf2flac -d -r 352800 -i $1 -o - 2>/dev/null \
         | ffmpeg -i - -r 352800 -c pcm_s32le -f alsa hw:1

@@ -7,3 +7,5 @@ function pin() {
     export $1="$PWD"
     echo "export $1=\"$PWD\"" >> $ZSH_CONFIG_PATH/99-dirs.zsh
 }
+
+export run="$XDG_RUNTIME_DIR"
