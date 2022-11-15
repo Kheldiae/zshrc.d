@@ -23,10 +23,40 @@ function auto-ls-onefetch() {
     fi
 }
 
-function auto-ls-nix-sh() {
-    [[ -v NIX_SHELL_PACKAGES ]]     && return 0 # Already in shell
+function auto-ls-nix-flake() {
+    export SKIP_NIX_SHELL_SCAN=0
     [[ ${WIDGET} == accept-line ]]  && return 0 # newline widget broken
-    [[ -d /nix ]]                   || return 0 # Nix isn't installed
+
+    if ! ( find --version     | grep GNU \
+        && df --version       | grep GNU \
+        && readlink --version | grep GNU) &>/dev/null
+    then
+        echo "The Nix flake file scanner requires the GNU coreutils and findutils."
+        return 0
+    fi          # wrong df, wrong find, or wrong readlink.
+
+    scanpath=$PWD
+    while [[ "$(df $scanpath --output=target | tail -n 1)" == "$(df $PWD --output=target | tail -n 1)" ]] && [[ $scanpath != / ]]
+    do
+        timeout .2s \
+        find "$scanpath" -maxdepth 1 -mindepth 1 \
+                    -type f         \
+                    -readable       \
+                    -name flake.nix 2>/dev/null \
+        | grep . &>/dev/null && \
+        {
+            echo -ne "A Nix flake was found. ($scanpath/flake.nix)\nLoad develop shell? [y/N] "
+            read -q && nix develop $scanpath -c zsh
+            export SKIP_NIX_SHELL_SCAN=1
+            return 0
+        }
+        scanpath="$(readlink -f "$scanpath/..")"
+    done
+}
+
+function auto-ls-nix-shell() {
+    [[ $SKIP_NIX_SHELL_SCAN == 1 ]] && return 0 # Don't scan both flakes and shells
+    [[ ${WIDGET} == accept-line ]]  && return 0 # newline widget broken
 
     if ! ( find --version     | grep GNU \
         && df --version       | grep GNU \
@@ -46,7 +76,7 @@ function auto-ls-nix-sh() {
                      -name shell.nix 2>/dev/null \
         | grep . &>/dev/null && \
         {
-            echo -n "A Nix shell workspace was found. ($scanpath/shell.nix) Load? [y/N] "
+            echo -ne "A Nix shell workspace was found. ($scanpath/shell.nix)\nLoad? [y/N] "
             read -q && nix-shell $scanpath/shell.nix
             return 0
         }
@@ -54,4 +84,9 @@ function auto-ls-nix-sh() {
     done
 }
 
-export AUTO_LS_COMMANDS=(reset readme onefetch lsd nix-sh echo)
+if [[ -v IN_NIX_SHELL ]] || [[ ! -d /nix ]]
+then
+    export AUTO_LS_COMMANDS=(reset readme onefetch lsd echo)
+else
+    export AUTO_LS_COMMANDS=(reset readme onefetch lsd nix-flake nix-shell echo)
+fi
