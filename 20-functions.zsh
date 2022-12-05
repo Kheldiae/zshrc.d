@@ -122,6 +122,11 @@ function ijava() {
 }                           # Invoke IJava Jupyter kernel with smart classpath
                             # if we're in a Gradle workspace.
 
+function watt() {
+    qalc -t $(sensors -A BAT0-acpi-0 | cut -sd' ' -f2- | sed ':a; N; $!ba; s/\n/*/g')
+}                           # Parse sensors data to gather real-time battery
+                            # flow/drain in watts
+
 function dsd-play() {
     dsf2flac -d -r 352800 -i $1 -o - 2>/dev/null \
         | ffmpeg -i - -r 352800 -c pcm_s32le -f alsa hw:1
