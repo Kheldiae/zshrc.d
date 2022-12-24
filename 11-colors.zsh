@@ -6,7 +6,12 @@ declare -A colors_light colors_dark
 c_fetch_image[dark]="$HOME/.local/etc/fetch_image_dark.png"
 c_fetch_image[light]="$HOME/.local/etc/fetch_image_light.png"
 
-c_gitfetch_image="$HOME/.local/etc/gitfetch_image.png"
+if [[ -v IN_NIX_SHELL ]]
+then
+    c_gitfetch_image="$HOME/.local/etc/gitfetch_nix_shell_image.png"
+else
+    c_gitfetch_image="$HOME/.local/etc/gitfetch_image.png"
+fi
 
 c_kitty_opacity[dark]="0.3"
 c_kitty_opacity[light]="0.6"
