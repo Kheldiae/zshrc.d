@@ -21,4 +21,6 @@ colors_dark[ssh_bg]="#040454"
 colors_light[goyo_bg]="#d9d9da"
 colors_light[ssh_bg]="#b9caff"
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
+
 # vim: ft=zsh

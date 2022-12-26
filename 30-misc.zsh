@@ -20,6 +20,20 @@ function _new() {
     done
 }
 
+function _zsh_autosuggest_strategy_dirhist() {
+    emulate -L zsh
+    local zcmd=${${(z)1}[1]}
+    if [[ "$zcmd" =~ "^[1-9]$" ]]
+    then
+        if [[ -v dirstack[$zcmd] ]]
+        then
+            typeset -g suggestion="$1 # -> ${dirstack[$zcmd]}"
+        else
+            typeset -g suggestion="$1 # (no stack entry)"
+        fi
+    fi
+}
+
 # Completion modes (controls tab behavior per-command)
 compdef _precommand ,
 compdef _precommand $
@@ -28,3 +42,6 @@ compdef _new new
 
 # Add comma highlighter
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main comma)
+
+# Add directory stack strategy to autosuggest
+ZSH_AUTOSUGGEST_STRATEGY=(dirhist history)
