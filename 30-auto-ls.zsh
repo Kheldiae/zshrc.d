@@ -7,6 +7,7 @@ function auto-ls-echo() { echo; }
 function auto-ls-lsd() { lsd --group-dirs=first; }
 
 function auto-ls-readme() {
+    [[ ${WIDGET} == accept-line ]] && return 0
     for f in $(find . -maxdepth 1 -iname "README*")
     do
         bat --style numbers,header --paging=never $f
@@ -17,7 +18,7 @@ function auto-ls-readme() {
 function auto-ls-onefetch() {
     if git status &>/dev/null
     then
-        onefetch --image-backend kitty -i $c_gitfetch_image --no-palette
+        onefetch --image-protocol kitty --image $c_gitfetch_image --no-color-palette
         git status -s
         echo
     fi
@@ -46,7 +47,10 @@ function auto-ls-nix-flake() {
         | grep . &>/dev/null && \
         {
             echo -ne "A Nix flake was found. ($scanpath/flake.nix)\nLoad develop shell? [y/N] "
-            read -q && nix develop $scanpath -c zsh
+            read -q && {
+                echo -ne "`tput tsl`Building Nix flake shell...`tput fsl`"
+                nix develop $scanpath -c zsh
+            }
             export SKIP_NIX_SHELL_SCAN=1
             return 0
         }
@@ -77,7 +81,10 @@ function auto-ls-nix-shell() {
         | grep . &>/dev/null && \
         {
             echo -ne "A Nix shell workspace was found. ($scanpath/shell.nix)\nLoad? [y/N] "
-            read -q && nix-shell $scanpath/shell.nix
+            read -q && {
+                echo -ne "`tput tsl`Building Nix shell...`tput fsl`"
+                nix-shell $scanpath/shell.nix
+            }
             return 0
         }
         scanpath="$(readlink -f "$scanpath/..")"

@@ -39,7 +39,7 @@ alias userctl="systemctl --user"    # Manage user-mode systemd units
 
 alias yelp="noglob yelp"
 
-alias gitfetch="onefetch --image-backend kitty -i $c_gitfetch_image --no-color-palette"
+alias gitfetch="onefetch --image $c_gitfetch_image --no-color-palette"
 
 alias play="gst-play-1.0"
 
