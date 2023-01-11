@@ -107,6 +107,7 @@ function __deps::check_optional() {
     __deps::check   qalc         libqalculate
     __deps::check   ,            comma
     __deps::check   pandoc       pandoc
+    __deps::check   zoxide       zoxide
 }
 
 # Check if user cloned submodules, and ask if we can do it for them.

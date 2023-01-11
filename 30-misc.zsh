@@ -45,3 +45,6 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main comma)
 
 # Add directory stack strategy to autosuggest
 ZSH_AUTOSUGGEST_STRATEGY=(dirhist history)
+
+# Load Zoxide smart cd if installed
+which -p zoxide >&/dev/null && eval "$(zoxide init zsh --cmd cd)"
