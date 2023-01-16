@@ -22,15 +22,26 @@ function _new() {
 
 function _zsh_autosuggest_strategy_dirhist() {
     emulate -L zsh
-    local zcmd=${${(z)1}[1]}
-    if [[ "$zcmd" =~ "^[1-9]$" ]]
+    local zcmd=(${(z)1})
+    if [[ "${zcmd[1]}" =~ "^[1-9]$" ]]
     then
-        if [[ -v dirstack[$zcmd] ]]
+        if [[ -v dirstack[${zcmd[1]}] ]]
         then
-            typeset -g suggestion="$1 # -> ${dirstack[$zcmd]}"
+            typeset -g suggestion="$1 # -> ${dirstack[${zcmd[1]}]}"
         else
             typeset -g suggestion="$1 # (no stack entry)"
         fi
+    fi
+}
+
+function _zsh_autosuggest_strategy_zoxide() {
+    emulate -L zsh
+    local zcmd=(${(z)1})
+    if  [[ "${zcmd[1]}" = "cd" ]] &&\
+        [[ ${#zcmd} == 2 ]]       &&\
+        sugg=$(zoxide query "${zcmd[2]}" 2>/dev/null)
+    then
+        typeset -g suggestion="$1 # -> $sugg"
     fi
 }
 
@@ -47,4 +58,8 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main comma)
 ZSH_AUTOSUGGEST_STRATEGY=(dirhist history)
 
 # Load Zoxide smart cd if installed
-which -p zoxide >&/dev/null && eval "$(zoxide init zsh --cmd cd)"
+if which -p zoxide >&/dev/null
+then
+    eval "$(zoxide init zsh --cmd cd)"
+    ZSH_AUTOSUGGEST_STRATEGY=(zoxide dirhist history)
+fi
