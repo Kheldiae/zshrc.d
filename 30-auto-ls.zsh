@@ -73,17 +73,17 @@ function auto-ls-nix-shell() {
     scanpath=$PWD
     while [[ "$(df $scanpath --output=target | tail -n 1)" == "$(df $PWD --output=target | tail -n 1)" ]] && [[ $scanpath != / ]]
     do
-        timeout .2s \
-        find "$scanpath" -maxdepth 1 -mindepth 1 \
-                     -type f         \
-                     -readable       \
-                     -name shell.nix 2>/dev/null \
-        | grep . &>/dev/null && \
+        scanshell="$(timeout .2s \
+                     find "$scanpath" -maxdepth 1 -mindepth 1 \
+                                      -type f         \
+                                      -readable       \
+                                      \( -name shell.nix -or -name default.nix \) 2>/dev/null)"
+        grep . &>/dev/null <<<"$scanshell" && \
         {
-            echo -ne "A Nix shell workspace was found. ($scanpath/shell.nix)\nLoad? [y/N] "
+            echo -ne "A Nix shell workspace was found. ($scanshell)\nLoad? [y/N] "
             read -q && {
                 echo -ne "`tput tsl`Building Nix shell...`tput fsl`"
-                nix-shell $scanpath/shell.nix
+                nix-shell $scanshell
             }
             return 0
         }
