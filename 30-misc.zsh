@@ -42,6 +42,11 @@ function _zsh_autosuggest_strategy_zoxide() {
         sugg=$(zoxide query "${zcmd[2]}" 2>/dev/null)
     then
         typeset -g suggestion="$1 # -> $sugg"
+    elif [[ "${zcmd[1]}" = "z" ]] &&\
+         [[ "${#zcmd}" -ge 2 ]]     &&\
+         sugg=$(zoxide query "${zcmd[2]}" 2>/dev/null)
+    then
+        typeset -g suggestion="$@ # -> $sugg"
     fi
 }
 

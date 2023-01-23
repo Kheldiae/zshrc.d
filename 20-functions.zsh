@@ -87,6 +87,21 @@ function '$'() {
     done
 }                           # Turn any command into a prompt
 
+function z() {
+    if [[ $# == 0 ]]
+    then
+        >&2 echo "Usage: z <query> [command]"
+        return 1
+    elif [[ $# == 1 ]]
+    then
+        zoxide query "$1"
+    else
+        DIR="$1"
+        shift 1
+        (__zoxide_z "$DIR" && "$@")
+    fi
+}
+
 function surf-md() {
     TARGET=$(mktemp "surf-md.XXXXXXXXXX.html" --tmpdir)
     pandoc -f markdown -t html $1 > $TARGET
