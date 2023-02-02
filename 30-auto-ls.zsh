@@ -48,6 +48,7 @@ function auto-ls-nix-flake() {
         {
             echo -ne "A Nix flake was found. ($scanpath/flake.nix)\nLoad develop shell? [y/N] "
             read -q && {
+                tput cr; tput el
                 echo -ne "`tput tsl`Building Nix flake shell...`tput fsl`"
                 nix develop $scanpath -c zsh
             }
@@ -82,6 +83,7 @@ function auto-ls-nix-shell() {
         {
             echo -ne "A Nix shell workspace was found. ($scanshell)\nLoad? [y/N] "
             read -q && {
+                tput cr; tput el
                 echo -ne "`tput tsl`Building Nix shell...`tput fsl`"
                 nix-shell $scanshell
             }
