@@ -15,7 +15,7 @@ zplug "zsh-users/zsh-syntax-highlighting",  defer:2
 zplug "zsh-users/zsh-autosuggestions"
 
 zplug "bilelmoussaoui/flatpak-zsh-completion"
-zplug "spwhitt/nix-zsh-completions"
+zplug "nix-community/nix-zsh-completions"
 zplug "chisui/zsh-nix-shell"
 
 zplug "zuxfoucault/colored-man-pages_mod"

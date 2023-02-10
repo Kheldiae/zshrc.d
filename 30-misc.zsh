@@ -20,6 +20,22 @@ function _new() {
     done
 }
 
+function _nix() {
+    local ifs_bk="$IFS"
+    local input=("${(Q)words[@]}")
+    IFS=$'\t\n'
+    local res=($(NIX_GET_COMPLETIONS=$((CURRENT - 1)) "$input[@]"))
+    IFS="$ifs_bk"
+    local tpe="$res[1]"
+    local suggestions=(${res:1})
+    if [[ "$tpe" == filenames ]]
+    then
+        compadd -fa suggestions
+    else
+        compadd -a suggestions
+    fi
+}
+
 function _zsh_autosuggest_strategy_dirhist() {
     emulate -L zsh
     local zcmd=(${(z)1})
@@ -55,6 +71,7 @@ compdef _precommand ,
 compdef _precommand $
 compdef _is is
 compdef _new new
+compdef _nix nix
 
 # Add comma highlighter
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main comma)
