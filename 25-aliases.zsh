@@ -50,7 +50,7 @@ alias icoq="jupyter console --kernel coq"
 
 alias ino="arduino-cli"
 
-alias zplug="LANG=en_US.UTF-8 zplug" # Fix for zplug/zplug#419
+alias zplug="LANG=C.UTF-8 zplug"    # Fix for zplug/zplug#419
 
 
 alias calc="qalc"
