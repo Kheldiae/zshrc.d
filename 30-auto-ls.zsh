@@ -50,6 +50,7 @@ function auto-ls-nix-flake() {
             read -q && {
                 tput cr; tput el
                 echo -ne "`tput tsl`Building Nix flake shell...`tput fsl`"
+                export OLDPYTHON="$(which -p python)"
                 nix develop $scanpath -c zsh
             }
             export SKIP_NIX_SHELL_SCAN=1
@@ -85,6 +86,7 @@ function auto-ls-nix-shell() {
             read -q && {
                 tput cr; tput el
                 echo -ne "`tput tsl`Building Nix shell...`tput fsl`"
+                export OLDPYTHON="$(which -p python)"
                 nix-shell $scanshell
             }
             return 0

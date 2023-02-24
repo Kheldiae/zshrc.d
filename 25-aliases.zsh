@@ -1,6 +1,6 @@
 alias sudo="sudo "                  # Important, makes aliases work with sudo
 
-alias ducks="du -cksh"              # Shows disk usage by element in one tree lvl
+alias ducks="du -ckshx"             # Shows disk usage by element in one tree lvl
 alias btrfs-ducks="btrfs filesystem du -s --human-readable"
                                     # Uses btrfs version of du
 
@@ -11,7 +11,12 @@ alias cp="cp --reflink=auto"        # under btrfs, privilege reflinks
 
 alias type="type -f"                # Enable func printing on zsh type
 
-alias vim="nvim"                    # Switched to Neovim :D
+if [[ -v IN_NIX_SHELL ]]
+then
+    alias vim="nvim --cmd \"let g:python3_host_prog = '$OLDPYTHON'\""
+else
+    alias vim="nvim"                # Switched to Neovim :D
+fi
 
 alias goyo='_kitty_color goyo_bg 1 nvim -u ~/.config/nvim/goyo.vim'
                                     # a simpler editor.
