@@ -98,7 +98,7 @@ function z() {
     else
         DIR="$1"
         shift 1
-        (__zoxide_z "$DIR" && "$@")
+        (AUTO_LS_COMMANDS= __zoxide_z "$DIR" && "$@")
     fi
 }
 
