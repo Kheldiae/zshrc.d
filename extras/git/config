@@ -1,0 +1,16 @@
+[alias]
+    g = !flatpak run org.gnome.gitg
+[color]
+    ui = auto
+[pull]
+    rebase = true
+[rebase]
+    autoStash = true
+[blame]
+    ignoreRevsFile = .git-blame-ignore-revs
+[push]
+    autoSetupRemote = true
+[protocol "file"]
+    allow = always
+[init]
+    defaultBranch = master
