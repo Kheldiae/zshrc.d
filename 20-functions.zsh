@@ -3,12 +3,13 @@
 #
 
 function _get_theme() {
+    RUNDIR=${XDG_RUNTIME_DIR:-/tmp/run-$UID}
     if [[ -v DESKTOP_THEME ]]
     then
         echo $DESKTOP_THEME
-    elif [[ -r $XDG_RUNTIME_DIR/theme ]]
+    elif [[ -r $RUNDIR/theme ]]
     then
-        head -n1 $XDG_RUNTIME_DIR/theme | grep .
+        head -n1 $RUNDIR/theme | grep .
     elif ((IS_DARWIN))
     then
         ( defaults read -g AppleInterfaceStyle 2>/dev/null || echo 'light' ) | tr '[:upper:]' '[:lower:]'
