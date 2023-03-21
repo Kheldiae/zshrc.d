@@ -151,6 +151,11 @@ function dsd-play() {
                             # played on unsupported hardware. Signal is not PCM
                             # sound.
 
+function gtree() {
+    REPO_ROOT=$(git rev-parse --show-toplevel || return 1)
+    lsd --tree $(while read m; do <<<"-I $m"; done <$REPO_ROOT/.gitignore)
+}
+
 if which -p nom &>/dev/null
 then
     function nix-build()    { $(which -p nix-build) $@ |& nom; }

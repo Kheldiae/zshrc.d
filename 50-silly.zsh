@@ -3,11 +3,11 @@
 #
 
 function achievement() {
-    notify-send "Achievement get!" "$*" -i preferences-desktop-gaming
+    notify-send -e "Achievement get!" "$*" -i preferences-desktop-gaming
 }
 
 function ending() {
-    notify-send "Ending Unlocked" "$*" -i dictionary-symbolic -u critical
+    notify-send -e "Ending Unlocked" "$*" -i dictionary-symbolic -u critical
 }
 
 function thesola10() { echo "Yes, that's you."; }

@@ -48,7 +48,7 @@ function __extras::check() {
 }
 
 function __extras::print_missing() {
-    for d in ${__MISSING_CONFS}
+    for d in ${__MISSING_CONFS[@]}
     do
         >&2 echo "- $d"
     done
@@ -79,7 +79,7 @@ function install-extras() {
             pgrep systemd >/dev/null && __extras::systemd_enable
             [[ $(uname -s) == Darwin ]] && __extras::launchd_enable
 
-            for d in __MISSING_CONFS
+            for d in ${__MISSING_CONFS[@]}
             do
                 __extras::install $d
             done
