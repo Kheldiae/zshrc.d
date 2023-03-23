@@ -10,7 +10,7 @@ then
 else
     [[ -f $XDG_RUNTIME_DIR/theme ]] || touch $XDG_RUNTIME_DIR/theme
     _get_theme() {
-        < $XDG_RUNTIME_DIR/theme
+        cat $XDG_RUNTIME_DIR/theme
     }
 fi
 

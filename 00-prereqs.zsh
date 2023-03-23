@@ -145,6 +145,8 @@ then
     __deps::check   gzip        gzip
     __deps::check   curl        curl
     __deps::check   wget        wget
+    __deps::check   jq          jq
+    __deps::check   fzy         fzy
     __deps::resolve
     __deps::fetch_zplug
     touch $HOME/.zsh_has_deps   # Don't recheck every time

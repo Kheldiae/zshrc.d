@@ -36,6 +36,38 @@ function auto-ls-nix-flake() {
         return 0
     fi          # wrong df, wrong find, or wrong readlink.
 
+    function _choose_nix_dev() {
+        nsys=$(nix show-config --json | jq -r .system.value)
+
+        if _=$(nix flake show "$1" --json 2>/dev/null | jq -r .devShells.\"$nsys\"\[\] 2>/dev/null)
+        then
+            >&2 echo -e "A Nix flake was found. ($scanpath/flake.nix)"
+            nss="$(nix flake show "$1" --json 2>/dev/null | jq -r .devShells.\"$nsys\"\|keys\[\])"
+            if (( $(wc -l <<< $nss) == 1 ))
+            then
+                >&2 echo -ne "Load development shell '$nss'? [y/N] "
+                read -q && echo "devShells.$nsys.$nss"
+            else
+                >&2 echo "This flake provides several development shells."
+                mysh=$(fzy -p "Shell (ESC to cancel): " <<< $nss) && echo "devShells.$nsys.$mysh"
+            fi
+        elif _=$(nix flake show "$1" --json 2>/dev/null | jq -r .packages.\"$nsys\"\[\] 2>/dev/null)
+        then
+            >&2 echo -e "A Nix flake was found. ($scanpath/flake.nix)"
+            nss="$(nix flake show "$1" --json 2>/dev/null | jq -r .packages.\"$nsys\"\|keys\[\])"
+            if (( $(wc -l <<< $nss) == 1 ))
+            then
+                >&2 echo -ne "Load development shell from package '$nss'? [y/N] "
+                read -q && echo "packages.$nsys.$nss"
+            else
+                >&2 echo "This flake provides several packages."
+                mysh=$(fzy -p "Package (ESC to cancel): " <<< $nss) && echo "packages.$nsys.$mysh"
+            fi
+        else
+            return 1
+        fi
+    }
+
     scanpath=$PWD
     while [[ "$(df $scanpath --output=target | tail -n 1)" == "$(df $PWD --output=target | tail -n 1)" ]] && [[ $scanpath != / ]]
     do
@@ -46,12 +78,11 @@ function auto-ls-nix-flake() {
                     -name flake.nix 2>/dev/null \
         | grep . &>/dev/null && \
         {
-            echo -ne "A Nix flake was found. ($scanpath/flake.nix)\nLoad develop shell? [y/N] "
-            read -q && {
+            ns=$(_choose_nix_dev "$scanpath") && {
                 tput cr; tput el
                 echo -ne "`tput tsl`Building Nix flake shell...`tput fsl`"
                 export OLDPYTHON="$(which -p python)"
-                nix develop $scanpath -c zsh
+                nix develop "$scanpath#$ns" -c zsh
             }
             export SKIP_NIX_SHELL_SCAN=1
             return 0
