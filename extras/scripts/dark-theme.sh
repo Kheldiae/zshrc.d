@@ -8,7 +8,7 @@ then
 
     source ~/.config/zshrc.d/11-colors.zsh
 
-    for pid in $(ps fU $(whoami)|grep '[0-9]  \\_ kitty' | cut -f 4 -d ' ')
+    for pid in $(ps fU $(whoami)|grep '[0-9]  \\_ kitty' | grep -o '^ *[0-9]*')
     do
     {
         kcolor=$(kitty @ --to=unix:@kitty-$pid get-colors|grep "^background"|tail -c8|tr -d $'\n')
