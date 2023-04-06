@@ -1,0 +1,13 @@
+# Incremental build files from ccls language server
+.ccls-cache
+
+# Nix build symlink
+result
+result-*
+
+# Sourcetrail databases
+*.srctrlbm
+*.srctrldb
+
+# Nix-specific Gradle and Maven work path
+\?/*
