@@ -22,6 +22,7 @@ function __extras::systemd_enable() {
     do
         if ! [[ -e $HOME/.config/systemd/user/$u:t ]]
         then
+            mkdir -p $HOME/.config/systemd/user
             ln -s $u $HOME/.config/systemd/user/$u:t
             systemctl --user enable $u:t
         fi
