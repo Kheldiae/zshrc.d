@@ -113,6 +113,11 @@ function auto-ls-nix-shell() {
                                       \( -name shell.nix -or -name default.nix \) 2>/dev/null)"
         grep . &>/dev/null <<<"$scanshell" && \
         {
+            if grep 'shell\.nix' &>/dev/null <<<"$scanshell" \
+                && grep 'default\.nix' &>/dev/null <<<"$scanshell"
+            then
+                scanshell="$scanpath/shell.nix"
+            fi
             echo -ne "A Nix shell workspace was found. ($scanshell)\nLoad? [y/N] "
             read -q && {
                 tput cr; tput el

@@ -5,6 +5,7 @@
 
 source $ZSH_CONFIG_PATH/zplug/init.zsh
 
+export COMPLETION_WAITING_DOTS=1
 
 zplug "romkatv/powerlevel10k",              as:theme
 
