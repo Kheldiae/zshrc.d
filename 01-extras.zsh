@@ -87,6 +87,7 @@ function install-extras() {
         elif [[ -v FIRST ]]
         then
             >&2 echo "You can always install configs using 'install-extras'"
+            touch $HOME/.zsh_asked_extras
         fi
     elif ! [[ -v FIRST ]]
     then
@@ -94,4 +95,4 @@ function install-extras() {
     fi
 }
 
-FIRST=1 install-extras
+[[ -f $HOME/.zsh_asked_extras ]] || FIRST=1 install-extras

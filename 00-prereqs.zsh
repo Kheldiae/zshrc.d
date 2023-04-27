@@ -110,6 +110,7 @@ function __deps::check_optional() {
     __deps::check   pandoc       pandoc
     __deps::check   zoxide       zoxide
     __deps::check   notify-send  libnotify
+    __deps::check   dsf2flac     dsf2flac
 }
 
 # Check if user cloned submodules, and ask if we can do it for them.
