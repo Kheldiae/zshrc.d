@@ -106,6 +106,7 @@ function __deps::check_optional() {
     __deps::check   nom          nix-output-monitor
     __deps::check   qalc         libqalculate
     __deps::check   ,            comma
+    __deps::check   nix-index    nix-index
     __deps::check   pandoc       pandoc
     __deps::check   zoxide       zoxide
     __deps::check   notify-send  libnotify
