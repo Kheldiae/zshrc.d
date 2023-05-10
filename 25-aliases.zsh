@@ -28,6 +28,8 @@ alias goyo='_kitty_color goyo_bg 1 nvim -u ~/.config/nvim/goyo.vim'
 alias ssh='_kitty_color ssh_bg $c_kitty_opacity[`_get_theme`] ssh'
                                     # blue-tint ssh term
 
+alias ip6="ip -6"                   # IPv6 shorthand config
+
 ((IS_DARWIN)) || alias open="xdg-open"
                                     # Think different.
 
