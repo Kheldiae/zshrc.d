@@ -14,7 +14,7 @@ else
 fi
 
 c_kitty_opacity[dark]="0.3"
-c_kitty_opacity[light]="0.6"
+c_kitty_opacity[light]="0.7"
 
 colors_dark[goyo_bg]="#404552"
 colors_dark[ssh_bg]="#040454"
