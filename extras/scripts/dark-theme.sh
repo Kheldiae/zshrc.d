@@ -6,7 +6,8 @@ then
     echo 1 > /sys/class/leds/dell::kbd_backlight/brightness
     dconf write /org/gnome/shell/extensions/user-theme/name "'Orchis-Dark'"
 
-    source ~/.config/zshrc.d/11-colors.zsh
+    zcpath=$(zsh -ic 'print $ZSH_CONFIG_PATH')
+    source $zcpath/11-colors.zsh
 
     for pid in $(ps fU $(whoami)|grep '[0-9]  \\_ kitty' | grep -o '^ *[0-9]*')
     do
