@@ -12,6 +12,21 @@ then
     typeset -g POWERLEVEL9K_CONTEXT_REMOTE_TEMPLATE="$(< $HOME/.box-name) (%n)"
 fi                                      # Box name (like Honukai)
 
+function _kcolor() {
+    case "${#words[@]}" in
+    2)  for k in ${(k)colors_dark}
+        do  compadd $k
+        done
+    ;;
+    3)  break
+    ;;
+    *)  shift 3 words
+        (( CURRENT -= 3))
+        _normal
+    ;;
+    esac
+}
+
 function _is() { service=type _which; }
 
 function _new() {
@@ -72,6 +87,7 @@ compdef _precommand $
 compdef _is is
 compdef _new new
 compdef _nix nix
+compdef _kcolor _kitty_color
 
 # Add comma highlighter
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main comma)

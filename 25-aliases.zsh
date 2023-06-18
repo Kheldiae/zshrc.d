@@ -11,18 +11,19 @@ alias cp="cp --reflink=auto"        # under btrfs, privilege reflinks
 
 alias type="type -f"                # Enable func printing on zsh type
 
+alias vim="nvim"                    # Switched to Neovim :D
+
 if [[ -v IN_NIX_SHELL ]]
 then
     pyver=$(python3 --version | cut -d' ' -f 2| cut -d'.' -f 1-2)
     repypath="PYTHONPATH=$HOME/.local/lib/python$pyver/site-packages:\$PYTHONPATH" 
-    alias vim="nvim --cmd \"let g:python3_host_prog = '$OLDPYTHON'\""
+    [[ "$(realpath $(which -p nvim))" =~ ^/nix ]] \
+        || alias vim="nvim --cmd \"let g:python3_host_prog = '$OLDPYTHON'\""
     alias ipython="$repypath ipython"
     alias jupyter="$repypath jupyter"
-else
-    alias vim="nvim"                # Switched to Neovim :D
 fi
 
-alias goyo='_kitty_color goyo_bg 1 nvim -u ~/.config/nvim/goyo.vim'
+alias goyo='_kitty_color goyo_bg 1 nvim --cmd "let g:startGoyo = 1"'
                                     # a simpler editor.
 
 alias ssh='_kitty_color ssh_bg $c_kitty_opacity[`_get_theme`] ssh'
