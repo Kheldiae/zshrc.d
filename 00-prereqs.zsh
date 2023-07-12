@@ -33,7 +33,12 @@ function __deps::resolve() {
         >&2 echo -n "Do you want to try loading the missing commands? [y/N] "
         read -q && >&2 echo \
             && {
-            nix-env -iA ${:-nixpkgs.${^__FAILED_DEPS}}
+            if [[ -f $HOME/.nix-profile/manifest.json ]]
+            then
+                nix profile install nixpkgs#${:-${^__FAILED_DEPS}}
+            else
+                nix-env -iA ${:-nixpkgs.${^__FAILED_DEPS}}
+            fi
             }   \
             && return       # Nix installed our deps
     fi
@@ -56,7 +61,12 @@ function __deps::resolve_optional() {
         >&2 echo -n "Do you want to try loading the missing commands? [y/N] "
         read -q && >&2 echo \
             && {
-            nix-env -iA ${:-nixpkgs.${^__FAILED_DEPS}}
+            if [[ -f $HOME/.nix-profile/manifest.json ]]
+            then
+                nix profile install nixpkgs#${:-${^__FAILED_DEPS}}
+            else
+                nix-env -iA ${:-nixpkgs.${^__FAILED_DEPS}}
+            fi
             }   \
             && return       # Nix installed our deps
         >&2 echo
