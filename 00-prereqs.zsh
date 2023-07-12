@@ -116,7 +116,7 @@ function __deps::check_optional() {
 # Check if user cloned submodules, and ask if we can do it for them.
 # Git is a required dependency, so we don't need to check for that.
 function __deps::fetch_zplug() {
-    if ! [[ -r $ZSH_CONFIG_PATH/zplug/init.zsh ]]
+    if ! [[ -r ${ZPLUG_PATH:-$ZSH_CONFIG_PATH/zplug}/init.zsh ]]
     then
         >&2 echo "zplug could not be found, most likely because this repository's"
         >&2 echo "submodules weren't cloned."

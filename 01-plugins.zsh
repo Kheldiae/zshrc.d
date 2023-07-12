@@ -3,7 +3,7 @@
 # Implies Nix installed, but works without.
 #
 
-source $ZSH_CONFIG_PATH/zplug/init.zsh
+source ${ZPLUG_PATH:-$ZSH_CONFIG_PATH/zplug}/init.zsh
 
 export COMPLETION_WAITING_DOTS=1
 
