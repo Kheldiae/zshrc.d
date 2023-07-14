@@ -49,6 +49,8 @@
             fzy
           ];
       };
+
+      ### The star of the show
       packages."zsh" = pkgs.stdenv.mkDerivation rec
       { inherit (pkgs.zsh) pname version;
         nativeBuildInputs = with pkgs; [ makeWrapper ];
@@ -87,5 +89,11 @@
             --prefix PATH : ${pkgs.lib.makeBinPath buildInputs}
         '';
       };
+
+      ### One-stop-shop variant with optional dependencies also included
+      packages."zsh-full" = self.packages.${system}.zsh.overrideAttrs
+      (o: { buildInputs = [ self.packages.${system}.optionalDeps ] ++ o.buildInputs; });
     });
+
+
 }
