@@ -67,6 +67,8 @@
           cat > $out/.zshrc <<EOF
             source \$HOME/.zshrc
 
+            [[ -v ZDIRFILE ]] || ZDIRFILE=\$HOME/.cache/zsh-dirs.zsh
+
             ZSH_CONFIG_PATH=${./.}
             ZPLUG_PATH=${pkgs.zplug}/share/zplug
 
