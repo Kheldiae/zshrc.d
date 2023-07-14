@@ -76,7 +76,7 @@
             done
           EOF
           makeWrapper ${pkgs.zsh}/bin/zsh $out/bin/zsh \
-            --prefix ZDOTDIR : $out \
+            --set ZDOTDIR $out \
             --prefix PATH : ${pkgs.lib.makeBinPath buildInputs}
         '';
       };
