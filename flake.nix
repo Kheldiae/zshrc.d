@@ -64,6 +64,9 @@
 
         installPhase = ''
           mkdir -p $out/bin
+          cat > $out/.zprofile <<EOF
+            source /etc/profile
+          EOF
           cat > $out/.zshrc <<EOF
             source \$HOME/.zshrc
 
