@@ -67,6 +67,8 @@
           cat > $out/.zshrc <<EOF
             source \$HOME/.zshrc
 
+            fpath=(/usr/share/zsh/site-functions ${self.packages.${system}.prereqs}/share/zsh/site-functions \$fpath)
+
             [[ -v ZDIRFILE ]] || ZDIRFILE=\$HOME/.cache/zsh-dirs.zsh
 
             ZSH_CONFIG_PATH=${./.}
