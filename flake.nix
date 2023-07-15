@@ -52,7 +52,7 @@
 
       ### The star of the show
       packages."zsh" = pkgs.stdenv.mkDerivation rec
-      { inherit (pkgs.zsh) pname version;
+      { inherit (pkgs.zsh) pname version passthru;
         nativeBuildInputs = with pkgs; [ makeWrapper ];
         buildInputs = with pkgs;
           [ zsh
