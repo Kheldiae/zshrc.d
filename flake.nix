@@ -50,6 +50,23 @@
           ];
       };
 
+      packages."zshrc" = pkgs.writeText "zshrc"
+        ''
+          source $HOME/.zshrc
+
+          fpath=(/usr/share/zsh/site-functions ${self.packages.${system}.prereqs}/share/zsh/site-functions $fpath)
+
+          [[ -v ZDIRFILE ]] || ZDIRFILE=$HOME/.cache/zsh-dirs.zsh
+
+          ZSH_CONFIG_PATH=${./.}
+          ZPLUG_PATH=${pkgs.zplug}/share/zplug
+
+          for file in $ZSH_CONFIG_PATH/*.zsh
+          do
+            . $file
+          done
+        '';
+
       ### The star of the show
       packages."zsh" = pkgs.stdenv.mkDerivation rec
       { inherit (pkgs.zsh) pname version passthru;
@@ -69,21 +86,7 @@
           cat > $out/.zprofile <<EOF
             source /etc/profile
           EOF
-          cat > $out/.zshrc <<EOF
-            source \$HOME/.zshrc
-
-            fpath=(/usr/share/zsh/site-functions ${self.packages.${system}.prereqs}/share/zsh/site-functions \$fpath)
-
-            [[ -v ZDIRFILE ]] || ZDIRFILE=\$HOME/.cache/zsh-dirs.zsh
-
-            ZSH_CONFIG_PATH=${./.}
-            ZPLUG_PATH=${pkgs.zplug}/share/zplug
-
-            for file in \$ZSH_CONFIG_PATH/*.zsh
-            do
-              . \$file
-            done
-          EOF
+          cp ${self.packages.${system}.zshrc} $out/.zshrc
           makeWrapper ${pkgs.zsh}/bin/zsh $out/bin/zsh \
             --set ZDOTDIR $out \
             --prefix PATH : ${pkgs.lib.makeBinPath buildInputs}
