@@ -52,8 +52,6 @@
 
       packages."zshrc" = pkgs.writeText "zshrc"
         ''
-          source $HOME/.zshrc
-
           fpath=(/usr/share/zsh/site-functions ${self.packages.${system}.prereqs}/share/zsh/site-functions $fpath)
 
           [[ -v ZDIRFILE ]] || ZDIRFILE=$HOME/.cache/zsh-dirs.zsh
@@ -86,7 +84,9 @@
           cat > $out/.zprofile <<EOF
             source /etc/profile
           EOF
-          cp ${self.packages.${system}.zshrc} $out/.zshrc
+          cat /dev/stdin ${self.packages.${system}.zshrc} > $out/.zshrc <<EOF
+            source \$HOME/.zshrc
+          EOF
           makeWrapper ${pkgs.zsh}/bin/zsh $out/bin/zsh \
             --set ZDOTDIR $out \
             --prefix PATH : ${pkgs.lib.makeBinPath buildInputs}
