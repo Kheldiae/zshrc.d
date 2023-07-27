@@ -127,6 +127,19 @@ function sport() {
     $(which -p ssh) -NL "${2}:127.0.0.1:${2}" "${1}"
 }
 
+function sslcat() {
+    if [[ $# -ge 2 ]]
+    then
+        hs=$1
+        pt=$2
+        shift 2
+        openssl s_client -connect "${hs}:${pt}" "$@"
+    else
+        >&2 echo "Usage: sslcat <host> <port> [openssl options]"
+        return 1
+    fi
+}
+
 function ijava() {
     [ -f "$PWD/settings.gradle" ] && gradle build
     local IJAVA_CLASSPATH
