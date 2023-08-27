@@ -102,8 +102,8 @@ then
     ZSH_AUTOSUGGEST_STRATEGY=(zoxide dirhist history)
 fi
 
-# Load direnv hook if installed
-if which -p direnv >&/dev/null
+# Load direnv hook if installed and outside nix-shell
+if which -p direnv >&/dev/null && ! [ -v IN_NIX_SHELL ]
 then
     eval "$(direnv hook zsh)"
 fi
