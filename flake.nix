@@ -24,6 +24,7 @@
             nix-index
             pandoc
             zoxide
+            direnv
             libnotify
             dsf2flac
           ];

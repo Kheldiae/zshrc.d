@@ -131,9 +131,4 @@ function auto-ls-nix-shell() {
     done
 }
 
-if [[ -v IN_NIX_SHELL ]] || [[ ! -d /nix ]]
-then
-    export AUTO_LS_COMMANDS=(reset readme onefetch lsd echo)
-else
-    export AUTO_LS_COMMANDS=(reset readme onefetch lsd nix-flake nix-shell echo)
-fi
+export AUTO_LS_COMMANDS=(reset readme onefetch lsd echo)

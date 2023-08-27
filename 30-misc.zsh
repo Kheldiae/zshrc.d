@@ -101,3 +101,9 @@ then
     eval "$(zoxide init zsh --cmd cd)"
     ZSH_AUTOSUGGEST_STRATEGY=(zoxide dirhist history)
 fi
+
+# Load direnv hook if installed
+if which -p direnv >&/dev/null
+then
+    eval "$(direnv hook zsh)"
+fi
