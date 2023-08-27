@@ -18,7 +18,12 @@ function auto-ls-readme() {
 function auto-ls-onefetch() {
     if git status &>/dev/null
     then
-        onefetch --image-protocol kitty --image $c_gitfetch_image --no-color-palette
+        if [ -v IN_NIX_SHELL ]
+        then gfi=$c_gitfetch_nix_shell_image
+        else gfi=$c_gitfetch_image
+        fi
+
+        onefetch --image-protocol kitty --image $gfi --no-color-palette
         git status -s
         echo
     fi
