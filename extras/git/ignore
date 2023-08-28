@@ -11,3 +11,6 @@ result-*
 
 # Nix-specific Gradle and Maven work path
 \?/*
+
+# direnv cache directory
+.direnv
