@@ -2,7 +2,7 @@
 # zsh-dirs plugin to pin a directory
 #
 
-source $ZDIRFILE
+[[ -f $ZDIRFILE ]] && source $ZDIRFILE
 
 function pin() {
     [[ $# != 1 ]] && { echo "Usage: pin <alias name>"; return; }
