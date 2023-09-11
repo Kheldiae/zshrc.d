@@ -148,7 +148,7 @@ function ijava() {
     do
         IJAVA_CLASSPATH="$file:$IJAVA_CLASSPATH"
     done
-    IJAVA_CLASSPATH="$IJAVA_CLASSPATH" jupyter console --kernel java
+    IJAVA_CLASSPATH="$PWD:$IJAVA_CLASSPATH" jupyter console --kernel java
 }                           # Invoke IJava Jupyter kernel with smart classpath
                             # if we're in a Gradle workspace.
 
