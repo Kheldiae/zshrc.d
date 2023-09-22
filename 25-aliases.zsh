@@ -13,6 +13,8 @@ alias type="type -f"                # Enable func printing on zsh type
 
 alias vim="nvim"                    # Switched to Neovim :D
 
+alias bake="bear -- make"           # Make with compile_commands.json
+
 if [[ -v IN_NIX_SHELL ]]
 then
     pyver=$(python3 --version | cut -d' ' -f 2| cut -d'.' -f 1-2)
