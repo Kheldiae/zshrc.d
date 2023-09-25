@@ -15,16 +15,6 @@ alias vim="nvim"                    # Switched to Neovim :D
 
 alias bake="bear -- make"           # Make with compile_commands.json
 
-if [[ -v IN_NIX_SHELL ]]
-then
-    pyver=$(python3 --version | cut -d' ' -f 2| cut -d'.' -f 1-2)
-    repypath="PYTHONPATH=$HOME/.local/lib/python$pyver/site-packages:\$PYTHONPATH" 
-    [[ "$(realpath $(which -p nvim))" =~ ^/nix ]] \
-        || alias vim="nvim --cmd \"let g:python3_host_prog = '$OLDPYTHON'\""
-    alias ipython="$repypath ipython"
-    alias jupyter="$repypath jupyter"
-fi
-
 alias goyo='_kitty_color goyo_bg 1 nvim --cmd "let g:startGoyo = 1"'
                                     # a simpler editor.
 
@@ -61,6 +51,7 @@ alias ihs="jupyter console --kernel haskell"
 alias icaml="jupyter console --kernel ocaml"
 alias irust="jupyter console --kernel rust"
 alias icoq="jupyter console --kernel coq"
+alias icc="jupyter console --kernel xcpp17"
 
 alias ino="arduino-cli"
 
