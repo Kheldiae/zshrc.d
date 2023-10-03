@@ -27,6 +27,7 @@
             direnv
             libnotify
             dsf2flac
+            bear
           ];
       };
       packages."prereqs" = pkgs.buildEnv {
