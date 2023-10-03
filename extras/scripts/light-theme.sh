@@ -1,10 +1,14 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 if [[ "`< $XDG_RUNTIME_DIR/theme`" != "light" ]]
 then
     echo "light" > $XDG_RUNTIME_DIR/theme
     echo 0 > /sys/class/leds/dell::kbd_backlight/brightness
-    dconf write /org/gnome/shell/extensions/user-theme/name "'Orchis-Yellow-Light'"
+
+    {
+        adb -s 192.168.240.112:5555 wait-for-device;
+        adb -s 192.168.240.112:5555 shell cmd uimode night no
+    } &
 
     zcpath=$(zsh -ic 'print $ZSH_CONFIG_PATH')
     source $zcpath/11-colors.zsh
