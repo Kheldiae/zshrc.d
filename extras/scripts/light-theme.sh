@@ -6,7 +6,7 @@ then
     echo 0 > /sys/class/leds/dell::kbd_backlight/brightness
 
     {
-        adb -s 192.168.240.112:5555 wait-for-device;
+        timeout 60s adb -s 192.168.240.112:5555 wait-for-device
         adb -s 192.168.240.112:5555 shell cmd uimode night no
     } &
 
