@@ -12,6 +12,13 @@ then
     typeset -g POWERLEVEL9K_CONTEXT_REMOTE_TEMPLATE="$(< $HOME/.box-name) (%n)"
 fi                                      # Box name (like Honukai)
 
+function zshaddhistory() {
+    emulate -L zsh
+    local xb=(${(z)1})
+
+    [[ ${xb[1]} = "cd" ]] && return 1
+}   # Filter out redundant commands like cd from history
+
 function _kcolor() {
     case "${#words[@]}" in
     2)  for k in ${(k)colors_dark}
