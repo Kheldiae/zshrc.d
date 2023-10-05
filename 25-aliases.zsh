@@ -51,7 +51,7 @@ alias ihs="jupyter console --kernel haskell"
 alias icaml="jupyter console --kernel ocaml"
 alias irust="jupyter console --kernel rust"
 alias icoq="jupyter console --kernel coq"
-alias icc="jupyter console --kernel xcpp17"
+alias icc="jupyter console --kernel xcpp11"
 
 alias ino="arduino-cli"
 
