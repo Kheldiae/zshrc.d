@@ -14,3 +14,8 @@ result-*
 
 # direnv cache directory
 .direnv
+
+# jdtls language server junk
+.classpath
+.project
+.settings

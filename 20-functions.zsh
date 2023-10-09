@@ -141,9 +141,13 @@ function sslcat() {
 }
 
 function ijava() {
-    [ -f "$PWD/settings.gradle" ] && gradle build
+    if [ -f "$PWD/settings.gradle" ]
+        then gradle build
+    elif [ -f "$PWD/pom.xml" ]
+        then mvn compile
+    fi
     local IJAVA_CLASSPATH
-    local jarfiles=(./*/build/libs/*.jar(N) ./build/libs/*.jar(N))
+    local jarfiles=(./*/build/libs/*.jar(N) ./build/libs/*.jar(N) ./target/classes)
     for file in $jarfiles
     do
         IJAVA_CLASSPATH="$file:$IJAVA_CLASSPATH"
