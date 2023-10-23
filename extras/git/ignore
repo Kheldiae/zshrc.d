@@ -8,6 +8,7 @@ result-*
 # Sourcetrail databases
 *.srctrlbm
 *.srctrldb
+sourcetrail_dependencies
 
 # Nix-specific Gradle and Maven work path
 \?/*

@@ -46,7 +46,7 @@ function _kitty_color() {
 
 function bat() {
     export BAT_THEME=$(if [[ `_get_theme` == "light" ]]; then <<< "gruvbox-light"; else <<< "gruvbox-dark"; fi)
-    $(which -p bat) "$@" --italic-text always
+    command bat "$@" --italic-text always
 }
 
 function b() {
@@ -61,7 +61,7 @@ function pat() {
 }
 
 function duf() {
-    $(which -p duf) -theme "$(_get_theme)" "$@"
+    command duf -theme "$(_get_theme)" "$@"
 }
 
 function fetch() {
@@ -124,7 +124,7 @@ function is() {
 
 function sport() {
     echo "Now serving port ${2} to ${1}... (Ctrl+C to stop)"
-    $(which -p ssh) -NL "${2}:127.0.0.1:${2}" "${1}"
+    command ssh -NL "${2}:127.0.0.1:${2}" "${1}"
 }
 
 function sslcat() {
