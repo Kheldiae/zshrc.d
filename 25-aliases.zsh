@@ -1,5 +1,3 @@
-alias sudo="sudo "                  # Important, makes aliases work with sudo
-
 alias ducks="du -ckshx"             # Shows disk usage by element in one tree lvl
 alias btrfs-ducks="btrfs filesystem du -s --human-readable"
                                     # Uses btrfs version of du

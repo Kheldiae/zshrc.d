@@ -4,7 +4,18 @@
 
 function auto-ls-reset() { [[ ${WIDGET} == accept-line ]] && clear; }
 function auto-ls-echo() { echo; }
-function auto-ls-lsd() { lsd --group-dirs=first; }
+
+function auto-ls-lsd() {
+    local ignore=()
+    if git status &>/dev/null
+    then
+        for f in $(git check-ignore *)
+        do
+            ignore+=("-I$f")
+        done
+    fi
+    lsd --group-dirs=first "${ignore[@]}"
+}
 
 function auto-ls-readme() {
     [[ ${WIDGET} == accept-line ]] && return 0
