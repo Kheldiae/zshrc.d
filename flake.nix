@@ -27,6 +27,7 @@
             libnotify
             dsf2flac
             bear
+            mdcat
           ];
       };
       packages."prereqs" = pkgs.buildEnv {

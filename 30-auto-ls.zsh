@@ -22,7 +22,12 @@ function auto-ls-readme() {
     [[ ${WIDGET} == accept-line ]] && return 0
     for f in $(find . -maxdepth 1 -iname "README*")
     do
-        bat --style numbers,header --paging=never $f
+        if [[ $f == *.[mM][dD] ]] && which -p mdcat >&/dev/null
+        then
+            mdcat $f
+        else
+            bat --style numbers,header --paging=never $f
+        fi
         echo
     done
 }
