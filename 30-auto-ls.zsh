@@ -13,6 +13,7 @@ function auto-ls-lsd() {
         do
             ignore+=("-I$f")
         done
+        ignore+=("-I\\?")
     fi
     lsd --group-dirs=first "${ignore[@]}"
 }
