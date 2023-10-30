@@ -26,6 +26,9 @@ export MAKEFLAGS=-j$(nproc --all)
 export GOPATH=$HOME/.local  # Lands Go packages right in PATH and prevents
                             # that fugly ~/go dir
 
+export DIRENV_LOG_FORMAT=$'\e[1;37mdirenv: \e[0;37m%s\e[0m'
+                            # More subdued colors for direnv logs
+
 export GIT_CONFIG_SYSTEM=$ZSH_CONFIG_PATH/extras/git/config
 
 export XDG_CONFIG_DIRS=$ZSH_CONFIG_PATH/extras:$XDG_CONFIG_DIRS
