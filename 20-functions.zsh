@@ -80,6 +80,11 @@ function t() {
 }                           # Tweet to @sola10_mp4 instantly
 
 function '$'() {
+    if [[ $# == 0 ]]
+    then
+        >&2 echo "Usage: $ <command>..."
+        return 1
+    fi
     a=
     while true
     do
