@@ -75,10 +75,6 @@ function ifetch() {
     neofetch --source $image "$@"
 }
 
-function t() {
-    twurl -d "status=$1" /1.1/statuses/update.json &>/dev/null
-}                           # Tweet to @sola10_mp4 instantly
-
 function '$'() {
     if [[ $# == 0 ]]
     then
