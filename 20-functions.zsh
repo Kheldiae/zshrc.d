@@ -115,7 +115,9 @@ function surf-md() {
 function qr-echo() {
     QRFILE=$(mktemp "qr-echo.XXXXXXXXXX.png" --tmpdir)
     qrencode "$@" -o $QRFILE
+    sleep .1
     kitty +kitten icat $QRFILE
+    sleep .1
     rm $QRFILE
 }
 
