@@ -3,13 +3,13 @@
 #
 
 function _get_theme() {
-    RUNDIR=${XDG_RUNTIME_DIR:-/tmp/run-$UID}
+    local rundir=${XDG_RUNTIME_DIR:-/tmp/run-$UID}
     if [[ -v DESKTOP_THEME ]]
     then
         echo $DESKTOP_THEME
-    elif [[ -r $RUNDIR/theme ]]
+    elif [[ -r $rundir/theme ]]
     then
-        head -n1 $RUNDIR/theme | grep .
+        head -n1 $rundir/theme | grep .
     elif ((IS_DARWIN))
     then
         ( defaults read -g AppleInterfaceStyle 2>/dev/null || echo 'light' ) | tr '[:upper:]' '[:lower:]'
@@ -45,13 +45,13 @@ function _kitty_color() {
 }
 
 function bat() {
+    local BAT_THEME
     export BAT_THEME=$(if [[ `_get_theme` == "light" ]]; then <<< "gruvbox-light"; else <<< "gruvbox-dark"; fi)
     command bat "$@" --italic-text always
 }
 
 function b() {
-    lang=$1
-
+    local lang=$1
     shift 1
     bat -l$lang --style numbers "$@"
 }
@@ -70,7 +70,7 @@ function fetch() {
 }
 
 function ifetch() {
-    image=$1
+    local image=$1
     shift 1
     neofetch --source $image "$@"
 }
@@ -99,26 +99,26 @@ function z() {
     then
         zoxide query "$1"
     else
-        DIR="$1"
+        local DIR="$1"
         shift 1
         (AUTO_LS_COMMANDS= __zoxide_z "$DIR" && "$@")
     fi
 }
 
 function surf-md() {
-    TARGET=$(mktemp "surf-md.XXXXXXXXXX.html" --tmpdir)
-    pandoc -f markdown -t html $1 > $TARGET
-    surf $TARGET
-    rm $TARGET
+    local target=$(mktemp "surf-md.XXXXXXXXXX.html" --tmpdir)
+    pandoc -f markdown -t html $1 > $target
+    surf $target
+    rm $target
 }
 
 function qr-echo() {
-    QRFILE=$(mktemp "qr-echo.XXXXXXXXXX.png" --tmpdir)
-    qrencode "$@" -o $QRFILE
+    local qrfile=$(mktemp "qr-echo.XXXXXXXXXX.png" --tmpdir)
+    qrencode "$@" -o $qrfile
     sleep .1
-    kitty +kitten icat $QRFILE
+    kitty +kitten icat $qrfile
     sleep .1
-    rm $QRFILE
+    rm $qrfile
 }
 
 function is() {
@@ -173,7 +173,7 @@ function dsd-play() {
                             # sound.
 
 function gtree() {
-    REPO_ROOT=$(git rev-parse --show-toplevel || return 1)
+    local REPO_ROOT=$(git rev-parse --show-toplevel || return 1)
     lsd --tree $(while read m; do <<<"-I $m"; done <$REPO_ROOT/.gitignore)
 }
 
