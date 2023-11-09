@@ -13,7 +13,7 @@ then
     zcpath=$(zsh -ic 'print $ZSH_CONFIG_PATH')
     source $zcpath/11-colors.zsh
 
-    for pid in $(pgrep -xP$(pgrep -x gnome-shell) kitty)
+    for pid in $(pgrep -x kitty)
     do
     {
         kcolor=$(kitty @ --to=unix:@kitty-$pid get-colors|grep "^background"|tail -c8|tr -d $'\n')
