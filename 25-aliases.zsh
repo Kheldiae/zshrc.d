@@ -19,11 +19,14 @@ alias goyo='_kitty_color goyo_bg 1 nvim --cmd "let g:startGoyo = 1"'
 alias ssh='_kitty_color ssh_bg $c_kitty_opacity[`_get_theme`] ssh'
                                     # blue-tint ssh term
 
+alias nya='kitten'                  # shorthand for kitty ^•ﻌ•^
+
 alias ip6="ip -6"                   # IPv6 shorthand config
 
 ((IS_DARWIN)) || alias open="xdg-open"
                                     # Think different.
 
+alias diff="diff --color=auto"
 alias grep="grep --color=auto"      # JUST
 alias zgrep="zgrep --color=auto"    # ADD
 alias fgrep="fgrep --color-auto"    # SOME
