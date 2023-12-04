@@ -15,4 +15,3 @@ function edit_sysroot()
     fi
 }
 
-alias snap_sysroot="sudo btrfs subvolume snapshot -r /sysroot/system/current /sysroot/system/\$(date +%Y-%m-%d).snapshot"
