@@ -5,8 +5,8 @@
 if (( ${+TMUX} ))
 then
     export TERM=screen-256color         # 256color by default
-    export VISUAL="tmux display-popup -E goyo"
-    export EDITOR="tmux display-popup -E goyo"
+    export VISUAL="tmux display-popup -w 75 -E goyo"
+    export EDITOR="tmux display-popup -w 75 -E goyo"
                                         # Popup commit editor
 
     # We're in tmux, in kitty, use stealth settings
