@@ -10,7 +10,7 @@ then
                                         # Popup commit editor
 
     # We're in tmux, in kitty, use stealth settings
-    if [[ $TERMINFO == *kitty* ]]
+    if [[ -v KITTY_PID ]]
     then
         tmux set -g status off
     fi
