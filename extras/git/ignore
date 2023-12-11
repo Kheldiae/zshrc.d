@@ -20,3 +20,6 @@ sourcetrail_dependencies
 .classpath
 .project
 .settings
+
+# Compile Commands list
+compile_commands.json
