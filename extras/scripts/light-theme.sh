@@ -17,7 +17,7 @@ then
     do
     {
         kcolor=$(kitty @ --to=unix:@kitty-$pid get-colors|grep "^background"|tail -c8|tr -d $'\n')
-        kncolor="#C3D4EE"
+        kncolor="#BFCDD2"
         for c in "${!colors_dark[@]}"
         do
             [[ "$kcolor" == "${colors_dark[$c]}" ]] && export kncolor=${colors_light[$c]} && break
