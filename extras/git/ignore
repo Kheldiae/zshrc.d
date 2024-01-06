@@ -23,3 +23,6 @@ sourcetrail_dependencies
 
 # Compile Commands list
 compile_commands.json
+
+# Python execution cache
+__pycache__

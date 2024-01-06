@@ -162,6 +162,7 @@ then
     __deps::check   wget        wget
     __deps::check   jq          jq
     __deps::check   fzy         fzy
+    __deps::check   python3     python3
     __deps::resolve
     __deps::fetch_zplug
     touch $HOME/.zsh_has_deps   # Don't recheck every time
