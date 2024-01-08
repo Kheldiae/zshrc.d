@@ -80,6 +80,10 @@ function ifetch() {
     neofetch --source $image "$@"
 }
 
+function pperf() {
+    powerprofilesctl launch -p performance "$@"
+}
+
 function '$'() {
     if [[ $# == 0 ]]
     then

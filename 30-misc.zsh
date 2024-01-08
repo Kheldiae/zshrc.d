@@ -102,6 +102,7 @@ function _zsh_autosuggest_strategy_zoxide() {
 # Completion modes (controls tab behavior per-command)
 compdef _precommand ,
 compdef _precommand $
+compdef _precommand pperf
 compdef _is is
 compdef _new new
 compdef _nix nix
