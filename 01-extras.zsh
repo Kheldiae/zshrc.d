@@ -95,4 +95,4 @@ function install-extras() {
     fi
 }
 
-[[ -f $HOME/.zsh_asked_extras ]] || FIRST=1 install-extras
+[[ -f $HOME/.zsh_asked_extras ]] || [[ -v ZSH_CONFIG_DEMO ]] || FIRST=1 install-extras
