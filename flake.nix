@@ -101,7 +101,10 @@
 
       ### One-stop-shop variant with optional dependencies also included
       packages."zsh-full" = self.packages.${system}.zsh.overrideAttrs
-      (o: { buildInputs = [ self.packages.${system}.optionalDeps ] ++ o.buildInputs; });
+      (o: rec {
+        buildInputs = [ self.packages.${system}.optionalDeps ] ++ o.buildInputs;
+        installPhase = "${o.installPhase} \\\n  --prefix PATH : ${pkgs.lib.makeBinPath buildInputs}";
+      });
     });
 
 
