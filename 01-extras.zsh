@@ -64,7 +64,13 @@ function __extras::install() {
         read -q || return
         mv $HOME/.config/$1 $HOME/.config.backup/$1
     fi
-    ln -s $EXTRAS_CONFIG_PATH/extras/$1 $HOME/.config/$1
+    if [[ $1 =~ .dconf$ ]]
+    then
+        DCONF_DEST=$(head -n 1 $EXTRAS_CONFIG_PATH/extras/$1 | cut -c 3-)
+        dconf load $DCONF_DEST < $EXTRAS_CONFIG_PATH/extras/$1
+    else
+        ln -s $EXTRAS_CONFIG_PATH/extras/$1 $HOME/.config/$1
+    fi
 }
 
 function install-extras() {
