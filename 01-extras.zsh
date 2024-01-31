@@ -104,7 +104,13 @@ then
     # of indirection to keep things up-to-date.
     if [[ $ZSH_CONFIG_PATH =~ ^/nix/store ]]
     then
-        [[ -e $HOME/.config/zshrc.d ]] || ln -s $ZSH_CONFIG_PATH $HOME/.config/zshrc.d
+        [[ -L $HOME/.config/zshrc.d ]] \
+            && [[ $(readlink ~/.config/zshrc.d) =~ ^/nix/store ]] \
+            && ln -fsn $ZSH_CONFIG_PATH $HOME/.config/zshrc.d
+            # Update existing link
+        [[ -e $HOME/.config/zshrc.d ]] \
+            || ln -s $ZSH_CONFIG_PATH $HOME/.config/zshrc.d
+            # Create link for the first time
         EXTRAS_CONFIG_PATH=$HOME/.config/zshrc.d
     else
         EXTRAS_CONFIG_PATH=$ZSH_CONFIG_PATH
