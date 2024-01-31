@@ -4,9 +4,10 @@
 
 typeset -a __MISSING_CONFS
 
+
 function __extras::launchd_enable() {
     mkdir -p $HOME/Library/LaunchAgents
-    for u in $ZSH_CONFIG_PATH/launchd/*
+    for u in $EXTRAS_CONFIG_PATH/launchd/*
     do
         if ! [[ -e $HOME/Library/LaunchAgents/$u:t ]]
         then
@@ -18,7 +19,7 @@ function __extras::launchd_enable() {
 }
 
 function __extras::systemd_enable() {
-    for u in $ZSH_CONFIG_PATH/systemd/*
+    for u in $EXTRAS_CONFIG_PATH/systemd/*
     do
         if ! [[ -e $HOME/.config/systemd/user/$u:t ]]
         then
@@ -31,7 +32,7 @@ function __extras::systemd_enable() {
 
 function __extras::check() {
     [[ -f $HOME/.zsh_has_extras ]] && return
-    for d in $ZSH_CONFIG_PATH/extras/*
+    for d in $EXTRAS_CONFIG_PATH/extras/*
     do
         if [[ -e $HOME/.config/$d:t ]] && \
             [[ "$(readlink $HOME/.config/$d:t)" != "$d" ]]
@@ -63,7 +64,7 @@ function __extras::install() {
         read -q || return
         mv $HOME/.config/$1 $HOME/.config.backup/$1
     fi
-    ln -s $ZSH_CONFIG_PATH/extras/$1 $HOME/.config/$1
+    ln -s $EXTRAS_CONFIG_PATH/extras/$1 $HOME/.config/$1
 }
 
 function install-extras() {
@@ -95,4 +96,20 @@ function install-extras() {
     fi
 }
 
-[[ -f $HOME/.zsh_asked_extras ]] || [[ -v ZSH_CONFIG_DEMO ]] || FIRST=1 install-extras
+if ! [[ -v ZSH_CONFIG_DEMO ]]
+then
+(){
+    local EXTRAS_CONFIG_PATH
+    # Do not create config symlinks to our Nix Store path, instead use a layer
+    # of indirection to keep things up-to-date.
+    if [[ $ZSH_CONFIG_PATH =~ ^/nix/store ]]
+    then
+        [[ -e $HOME/.config/zshrc.d ]] || ln -s $ZSH_CONFIG_PATH $HOME/.config/zshrc.d
+        EXTRAS_CONFIG_PATH=$HOME/.config/zshrc.d
+    else
+        EXTRAS_CONFIG_PATH=$ZSH_CONFIG_PATH
+    fi
+
+    [[ -f $HOME/.zsh_asked_extras ]] || FIRST=1 install-extras
+}
+fi
