@@ -110,7 +110,6 @@ function __deps::check_optional() {
     unset __FAILED_DEPS
     typeset -Ag __FAILED_DEPS    # Reset list of failed dependencies
     __deps::check   neofetch     neofetch
-    __deps::check   twurl        twurl
     __deps::check   qrencode     qrencode
     __deps::check   gst-play-1.0 gst_all_1.gst-plugins-base
     __deps::check   nom          nix-output-monitor

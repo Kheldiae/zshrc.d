@@ -14,7 +14,6 @@
         name = "zsh-optional-deps";
         paths = with pkgs;
           [ neofetch
-            twurl
             qrencode
             gst_all_1.gst-plugins-base
             nix-output-monitor
