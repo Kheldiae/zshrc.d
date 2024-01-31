@@ -19,6 +19,6 @@ colors_light[ssh_bg]="#b9caff"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
 
-[ -f "$HOME/.zshrc.d/11-colors.zsh" ] && source "$HOME/.zshrc.d/11-colors.zsh"
+[ -f "$HOME/.zsh-colors" ] && source "$HOME/.zsh-colors"
 
 # vim: ft=zsh

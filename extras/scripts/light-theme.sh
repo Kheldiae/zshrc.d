@@ -23,11 +23,11 @@ then
             [[ "$kcolor" == "${colors_dark[$c]}" ]] && export kncolor=${colors_light[$c]} && break
         done
 
-        kitty @ --to=unix:@kitty-$pid set-colors -a -c ~/.config/kitty/kitty-light.conf background=$kncolor
+        kitty @ --to=unix:@kitty-$pid set-colors -a -c ~/.config/kitty/colors-light.conf background=$kncolor
         kitty @ --to=unix:@kitty-$pid set-background-opacity "${c_kitty_opacity[light]}"
     } &
     done
-    ln -fsn kitty-light.conf ~/.config/kitty/kitty.conf
+    ln -fsn kitty/colors-light.conf ~/.config/kitty-colors.conf
     ln -fsn kvantum.light.kvconfig ~/.config/Kvantum/kvantum.kvconfig
 else
     echo "[DEBUG] Light theme already set, ignoring..." >&2

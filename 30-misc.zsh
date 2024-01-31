@@ -27,6 +27,7 @@ function zshaddhistory() {
 
     [[ ${xb[1]} = "cd" ]] && return 1
     [[ ${xb[1]} = "cdi" ]] && return 1
+    [[ $1 = "ls" ]] && return 1
     return 0
 }   # Filter out redundant commands like cd from history
 
