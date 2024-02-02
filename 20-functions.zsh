@@ -36,7 +36,7 @@ function _kitty_color() {
         shift 2
         "$@"
 
-        kitty @ set-colors -a -c ~/.config/kitty/kitty.conf
+        kitty @ set-colors -a -c ~/.config/kitty-colors.conf
         kitty @ set-background-opacity $c_kitty_opacity[`_get_theme`]
     else
         shift 2
