@@ -121,6 +121,7 @@ then
         EXTRAS_CONFIG_PATH=$ZSH_CONFIG_PATH
     fi
 
-    [[ -f $HOME/.zsh_asked_extras ]] || FIRST=1 install-extras
+    [[ -f $HOME/.zsh_asked_extras ]] || \
+        FIRST=1 EXTRAS_CONFIG_PATH=$EXTRAS_CONFIG_PATH install-extras
 }
 fi
