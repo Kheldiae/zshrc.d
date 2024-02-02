@@ -1,0 +1,65 @@
+name:
+  bureau: 
+  téléchargements: 
+  musique: 
+  images: 
+  vidéos: 
+  games: 
+  software: 
+  android: 󰀴
+  gitrepos: 󰊤
+  modèles: 󰅌
+  justfile: 󰞷
+  nix: 
+
+extension:
+  gifv: 
+  dsf: 
+  mscz: 󰽰
+  sla:         # Scribus project
+  diff: 
+  patch: 
+  iso: 
+  dmg: 
+  dsk: 󰉉
+  flp: 󰉉
+  xopp: 󱦹
+  blend: 󰆦
+  stl: 󰆧
+  dae: 󰆧
+  fbx: 󰆧
+  ino: 
+  snapshot: 󰁯
+  xmp:         # Darktable project
+  arw: 󰈯        # Sony RAW
+  lnk: 󰌷        # Windows shortcut file
+  bib: 󰂺
+  tex: 󰊄
+  oga: 
+  aiff: 
+  wv: 
+  flatpak: 󰏖
+  flatpakref: 󱧘
+  flatpakrepo: 󱧘
+  appimage: 
+  cpio: 
+  sit: 
+  eml: 
+  msg: 
+  mbox: 󰶌
+  gpx: 󰆤
+  osz: 󰙽        # osu! beatmap
+  part: 󰥦
+  ppd: 
+  x3g: 󰹛        # FlashForge 3D print path
+  srctrlprj:   # Sourcetrail Project
+  jsonnet: 
+  libsonnet: 
+  cmd: 
+  pacnew: 󰚰
+  pacsave: 󰁯
+  efi: 󰇻
+  cap: 󰘚        # UEFI Firmware Update Capsule
+  icns: 
+  ics: 󰃭
+  url: 󰖟
