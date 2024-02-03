@@ -94,8 +94,7 @@
           makeWrapper ${pkgs.zsh}/bin/zsh $out/bin/zsh \
             --set ZDOTDIR $out \
             --prefix PATH : ${pkgs.lib.makeBinPath buildInputs} \
-            --set PYTHON_FOR_BAT ${pkgs.python3.withPackages (ps: with ps; [ pixcat ])}/bin/python
-        '';
+            --set PYTHON_FOR_BAT ${pkgs.python3.withPackages (ps: with ps; [ pixcat ])}/bin/python'';
       };
 
       ### One-stop-shop variant with optional dependencies also included
