@@ -16,6 +16,7 @@ extension:
   gifv: 
   dsf: 
   mscz: 󰽰
+  bwproject: 󰽰  # Bitwig project
   sla:         # Scribus project
   diff: 
   patch: 
