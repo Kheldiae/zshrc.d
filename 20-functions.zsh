@@ -132,7 +132,7 @@ function qr-echo() {
 
 function is() {
     bat -lzsh --style plain <<EOF
-# $(builtin whence -v $1 | sed "s|$ZSH_CONFIG_PATH|\$ZSH_CONFIG_PATH|")
+# $(builtin whence -v $1 | sed -e "s|$ZSH_CONFIG_PATH|\$ZSH_CONFIG_PATH|" -e "s|$HOME|~|")
 $(builtin whence -f $1)
 EOF
 }
