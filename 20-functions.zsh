@@ -131,7 +131,10 @@ function qr-echo() {
 }
 
 function is() {
-    builtin which "$@" | bat -lzsh --style numbers
+    bat -lzsh --style plain <<EOF
+# $(builtin whence -v $1 | sed "s|$ZSH_CONFIG_PATH|\$ZSH_CONFIG_PATH|")
+$(builtin whence -f $1)
+EOF
 }
 
 function sport() {
