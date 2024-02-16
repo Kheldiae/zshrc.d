@@ -49,5 +49,8 @@ then
     printf "Install zsh plugins? (this may take a while) [y/N] "
     read -q && { echo; zplug install; }
 fi
+
+compinit -u                 # Disables annoying "insecure directories" nag
+
 zplug load
 
