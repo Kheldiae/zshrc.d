@@ -31,6 +31,7 @@ alias grep="grep --color=auto"      # JUST
 alias zgrep="zgrep --color=auto"    # ADD
 alias fgrep="fgrep --color-auto"    # SOME
 alias egrep="egrep --color=auto"    # COLOUR. grep is way better with highlight.
+alias jel="jello <"
 
 alias murder="kill -9"
 alias pmurder="pkill -9"
@@ -60,5 +61,9 @@ alias zplug="LANG=C.UTF-8 zplug"    # Fix for zplug/zplug#419
 
 
 alias calc="qalc"
-
 aliases[=]='noglob qalc -c'         # = shorthand for calculator
+
+# Nixie handling
+alias nixie="nix run github:nixie-dev/nixie --"
+
+alias shut="shutdown now"

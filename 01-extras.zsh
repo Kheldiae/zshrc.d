@@ -5,19 +5,6 @@
 typeset -a __MISSING_CONFS
 
 
-function __extras::launchd_enable() {
-    mkdir -p $HOME/Library/LaunchAgents
-    for u in $EXTRAS_CONFIG_PATH/launchd/*
-    do
-        if ! [[ -e $HOME/Library/LaunchAgents/$u:t ]]
-        then
-            ln -s $u $HOME/Library/LaunchAgents/$u:t
-            UNAME=$u:t
-            launchctl enable user/$UID/${UNAME%%.plist}
-        fi
-    done
-}
-
 function __extras::systemd_enable() {
     for u in $EXTRAS_CONFIG_PATH/systemd/*
     do
@@ -84,8 +71,6 @@ function install-extras() {
         if read -q
         then
             pgrep systemd >/dev/null && __extras::systemd_enable
-            [[ $(uname -s) == Darwin ]] && __extras::launchd_enable
-
             for d in ${__MISSING_CONFS[@]}
             do
                 __extras::install $d
