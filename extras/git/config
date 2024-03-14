@@ -1,5 +1,7 @@
 [alias]
     g = !flatpak run org.gnome.gitg
+    adi = add *
+    cam = commit -am
 [color]
     ui = auto
 [pull]
