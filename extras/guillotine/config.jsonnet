@@ -1,1 +1,7 @@
-local lib = import ./guillotine.libsonnet;
+local lib = import './guillotine.libsonnet';
+
+{
+  settings: { loglevel: 'error' },
+  menu: [
+  ],
+}
