@@ -10,14 +10,18 @@ function __imgs::ensure_dir() {
     fi
 }
 
-function __imgs::link() {
-    [[ -e $HOME/.zsh_has_imgs ]] && return
-
+function link-imgs() {
     >&2 echo "The following images are not linked :"
     __imgs::ensure_dir()
-    __imgs::print_missing()
+    ls -l $ZSH_CONFIG_PATH/imgs
     >&2 echo "Do you wish linking them ?"
-    read -q || return
-
-    # TODO file loop for symlinking
+    if read -q
+    then
+        for img in $(ls $ZSH_CONFIG_PATH/imgs)
+        do
+            cp $ZSH_CONFIG_PATH/imgs/$img $HOME/.local/etc/$img
+        done
+    else
+        >&2 echo "You can still link them with link-imgs"
+    fi
 }

@@ -2,6 +2,7 @@
     g = !flatpak run org.gnome.gitg
     adi = add *
     cam = commit -am
+    glog = log --all --pretty='format:%d %Cgreen%h%Creset %an - %s' --graph
 [color]
     ui = auto
 [pull]

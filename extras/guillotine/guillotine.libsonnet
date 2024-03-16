@@ -15,7 +15,7 @@ local Menu(name, icon, content=[]) = {
 
 local Separator() = { type: 'separator' };
 
-local Toggle(label, icon, name, start, stop, check, interval=5) = {
+local Switch(label, icon, name, start, stop, check, interval=5) = {
   type: 'switch',
   title: label,
   icon: icon,
@@ -26,4 +26,10 @@ local Toggle(label, icon, name, start, stop, check, interval=5) = {
 };
 
 {
+  Separator():: Separator(),
+  Command(name, icon, singleInstance, cmd):: Command(name,
+                                                     icon,
+                                                     singleInstance,
+                                                     cmd),
+  Menu(name, icon, content):: Menu(name, icon, content),
 }

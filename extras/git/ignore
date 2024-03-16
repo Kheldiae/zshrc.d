@@ -21,6 +21,9 @@ sourcetrail_dependencies
 .project
 .settings
 
+# Java and Rust junk directory (or anything using that as a build directory)
+target
+
 # Compile Commands list
 compile_commands.json
 
