@@ -15,15 +15,23 @@ local Menu(name, icon, content=[]) = {
 
 local Separator() = { type: 'separator' };
 
-local Switch(label, icon, name, start, stop, check, interval=5) = {
+local Switch(label, icon, name, start, stop, check, interval_s=5) = {
   type: 'switch',
   title: label,
   icon: icon,
   start: start,
   stop: stop,
   check: check,
-  interval_s: interval,
+  interval_s: interval_s,
 };
+
+local SystemdService(label, icon, name) =
+  Switch(label,
+         icon,
+         name,
+         start='systemctl start --user ' + name,
+         stop='systemctl stop --user ' + name,
+         check='systemctl is-active ' + name);
 
 {
   Separator():: Separator(),
@@ -32,4 +40,5 @@ local Switch(label, icon, name, start, stop, check, interval=5) = {
                                                      singleInstance,
                                                      cmd),
   Menu(name, icon, content):: Menu(name, icon, content),
+  SystemdService(label, icon, name):: SystemdService(label, icon, name),
 }

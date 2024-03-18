@@ -18,5 +18,7 @@ local lib = import './guillotine.libsonnet';
                   "kitty -e ''"),
     ]),
     lib.Separator(),
+    lib.Menu('Services', '', [
+    ]),
   ],
 }

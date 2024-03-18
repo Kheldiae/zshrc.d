@@ -13,7 +13,7 @@ alias vim="nvim"                    # Switched to Neovim :D
 
 alias bake="bear -- make"           # Make with compile_commands.json
 
-alias goyo='_kitty_color goyo_bg 1 nvim --cmd "let g:startGoyo = 1"'
+alias goyo='_kitty_color goyo_bg 0.7 nvim --cmd "let g:startGoyo = 1"'
                                     # a simpler editor.
 
 alias ssh='_kitty_color ssh_bg $c_kitty_opacity[`_get_theme`] ssh'
