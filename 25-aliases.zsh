@@ -16,7 +16,7 @@ alias bake="bear -- make"           # Make with compile_commands.json
 alias goyo='_kitty_color goyo_bg 0.7 nvim --cmd "let g:startGoyo = 1"'
                                     # a simpler editor.
 
-alias ssh='_kitty_color ssh_bg $c_kitty_opacity[`_get_theme`] ssh'
+alias ssh='_kitty_color ssh_bg 0.7 $c_kitty_opacity[`_get_theme`] ssh'
                                     # blue-tint ssh term
 
 alias nya='kitten'                  # shorthand for kitty ^•ﻌ•^

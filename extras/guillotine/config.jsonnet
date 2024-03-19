@@ -15,10 +15,14 @@ local lib = import './guillotine.libsonnet';
       lib.Command('System',
                   'emblem-system-symbolic',
                   true,
-                  "kitty -e ''"),
+                  "kitty 'journalctl -eb0'"),
     ]),
     lib.Separator(),
     lib.Menu('Services', '', [
+      lib.SystemdService('PostgreSQL Database engine',
+                         '',
+                         'postgresql'),
+      lib.Separator(),
     ]),
   ],
 }

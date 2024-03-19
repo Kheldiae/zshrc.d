@@ -29,9 +29,9 @@ local SystemdService(label, icon, name) =
   Switch(label,
          icon,
          name,
-         start='systemctl start --user ' + name,
-         stop='systemctl stop --user ' + name,
-         check='systemctl is-active ' + name);
+         start='systemctl start --user ' + name + '.service',
+         stop='systemctl stop --user ' + name + '.service',
+         check='systemctl is-active ' + name + '.service');
 
 {
   Separator():: Separator(),
