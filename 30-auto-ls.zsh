@@ -40,7 +40,8 @@ function auto-ls-onefetch() {
         else gfi=$c_gitfetch_image
         fi
 
-        onefetch --image-protocol kitty --image $gfi --no-color-palette
+        onefetch --image-protocol kitty --image $gfi --no-color-palette \
+            --disabled-fields churn description
         git status -s
         echo
     fi
