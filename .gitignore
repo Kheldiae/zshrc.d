@@ -6,3 +6,6 @@ result
 
 # user private aliases
 26-my-aliases.zsh
+
+# extras logs
+extras/pgcli/log
