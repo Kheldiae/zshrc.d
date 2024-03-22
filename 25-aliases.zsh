@@ -56,6 +56,7 @@ alias icoq="jupyter console --kernel coq"
 alias icc="jupyter console --kernel xcpp11"
 
 alias ino="arduino-cli"
+alias psql="pgcli"
 
 alias zplug="LANG=C.UTF-8 zplug"    # Fix for zplug/zplug#419
 
