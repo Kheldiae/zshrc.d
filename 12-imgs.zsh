@@ -12,7 +12,7 @@ function __imgs::ensure_dir() {
 
 function link-imgs() {
     >&2 echo "The following images are not linked :"
-    __imgs::ensure_dir()
+    __imgs::ensure_dir
     ls -l $ZSH_CONFIG_PATH/imgs
     >&2 echo "Do you wish linking them ?"
     if read -q

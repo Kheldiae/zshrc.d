@@ -7,10 +7,10 @@ local Command(name, icon, singleInstance=false, cmd) = {
 };
 
 local Menu(name, icon, content=[]) = {
-  type: 'menu',
+  type: 'submenu',
   title: name,
   icon: icon,
-  item: content,
+  items: content,
 };
 
 local Separator() = { type: 'separator' };

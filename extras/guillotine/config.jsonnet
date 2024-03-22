@@ -3,6 +3,7 @@ local lib = import './guillotine.libsonnet';
 {
   settings: {
     loglevel: 'error',
+    notificationLevel: 'error',
     icon: 'emblem-system-symbolic',
   },
   menu: [

@@ -189,6 +189,13 @@ function gtree() {
     lsd --tree $(while read m; do <<<"-I $m"; done <$REPO_ROOT/.gitignore)
 }
 
+# Neovim trigger discipline
+function :qa!() {
+    >&2 echo "Shutting down in 10..."
+    sleep 10
+    shutdown now
+}
+
 if which -p nom &>/dev/null
 then
     function nix-build()    { $(which -p nix-build) $@ |& nom; }
