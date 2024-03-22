@@ -8,4 +8,5 @@ result
 26-my-aliases.zsh
 
 # extras logs
-extras/pgcli/log
+extras/pgcli
+!extras/pgcli/config
