@@ -4,7 +4,7 @@
 #
 
 #TODO: edit those variables before use!
-ZSH_CONFIG_PATH=$HOME/.zshrc.d
+ZSH_CONFIG_PATH=$HOME/.config/zshrc.d
 
 # Run through zshrc modules and load them.
 for file in $ZSH_CONFIG_PATH/*.zsh
