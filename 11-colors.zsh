@@ -15,7 +15,7 @@ c_kitty_opacity[light]="0.7"
 colors_dark[goyo_bg]="#404552"
 colors_dark[ssh_bg]="#544635"
 colors_light[goyo_bg]="#d9d9da"
-colors_light[ssh_bg]="#b9caff"
+colors_light[ssh_bg]="#6a665e"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
 
