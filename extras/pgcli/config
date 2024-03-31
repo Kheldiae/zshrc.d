@@ -188,8 +188,8 @@ keyring = True
 # Custom colors for the completion menu, toolbar, etc.
 [colors]
 completion-menu.completion.current = 'bg:#ffffff #000000'
-completion-menu.completion = 'bg:#008888 #ffffff'
-completion-menu.meta.completion.current = 'bg:#44aaaa #000000'
+completion-menu.completion = 'bg:#292b2f #ffffff'
+completion-menu.meta.completion.current = 'bg:#4e4e4e #ffffff'
 completion-menu.meta.completion = 'bg:#448888 #ffffff'
 completion-menu.multi-column-meta = 'bg:#aaffff #000000'
 scrollbar.arrow = 'bg:#003333'
@@ -222,6 +222,7 @@ output.null = "#808080"
 
 # Named queries are queries you can execute by name.
 [named queries]
+list = select * from $1;
 
 # Here's where you can provide a list of connection string aliases.
 # You can use it by passing the -D option. `pgcli -D example_dsn`
