@@ -16,6 +16,8 @@ colors_dark[goyo_bg]="#404552"
 colors_dark[ssh_bg]="#544635"
 colors_light[goyo_bg]="#d9d9da"
 colors_light[ssh_bg]="#6a665e"
+colors_dark[pgcli_bg]="#4444444"
+colors_light[pgcli_bg]="#444444"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
 

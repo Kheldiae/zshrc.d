@@ -64,3 +64,5 @@ extension:
   icns: 
   ics: 󰃭
   url: 󰖟
+  template:    # For all template files I use
+  feature: 󱚊    # Cucumber feature books do deserve their icon

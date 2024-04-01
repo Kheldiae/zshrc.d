@@ -10,11 +10,11 @@ alias cp="cp --reflink=auto"        # under btrfs, privilege reflinks
 alias type="type -f"                # Enable func printing on zsh type
 
 alias vim="nvim"                    # Switched to Neovim :D
-
-alias bake="bear -- make"           # Make with compile_commands.json
-
 alias goyo='_kitty_color goyo_bg 0.7 nvim --cmd "let g:startGoyo = 1"'
                                     # a simpler editor.
+alias psql="_kitty_color pgcli_bg 0.7 pgcli" # SQL editor
+
+alias bake="bear -- make"           # Make with compile_commands.json
 
 alias ssh='_kitty_color ssh_bg 0.7 $c_kitty_opacity[`_get_theme`] ssh'
                                     # blue-tint ssh term
@@ -56,7 +56,6 @@ alias icoq="jupyter console --kernel coq"
 alias icc="jupyter console --kernel xcpp11"
 
 alias ino="arduino-cli"
-alias psql="pgcli"
 
 alias zplug="LANG=C.UTF-8 zplug"    # Fix for zplug/zplug#419
 
