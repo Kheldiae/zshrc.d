@@ -66,3 +66,5 @@ extension:
   url: 󰖟
   template:    # For all template files I use
   feature: 󱚊    # Cucumber feature books do deserve their icon
+  ui:          # Cambalache ui definition files
+  cmb:         # Cambalache project files

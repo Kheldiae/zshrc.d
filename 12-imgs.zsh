@@ -17,7 +17,7 @@ function link-imgs() {
     >&2 echo "Do you wish linking them ?"
     if read -q
     then
-        for img in $(ls $ZSH_CONFIG_PATH/imgs)
+        for img in $ZSH_CONFIG_PATH/imgs/*.png
         do
             cp $ZSH_CONFIG_PATH/imgs/$img $HOME/.local/etc/$img
         done
