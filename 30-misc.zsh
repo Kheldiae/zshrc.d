@@ -113,13 +113,13 @@ compdef _kcolor _kitty_color
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main comma)
 
 # Add directory stack strategy to autosuggest
-ZSH_AUTOSUGGEST_STRATEGY=(dirhist history)
+ZSH_AUTOSUGGEST_STRATEGY=(dirhist history comma)
 
 # Load Zoxide smart cd if installed
 if which -p zoxide >&/dev/null
 then
     eval "$(zoxide init zsh --cmd cd)"
-    ZSH_AUTOSUGGEST_STRATEGY=(zoxide dirhist history)
+    ZSH_AUTOSUGGEST_STRATEGY=(zoxide dirhist history comma)
 fi
 
 # Load direnv hook if installed and outside nix-shell
