@@ -10,7 +10,7 @@ alias cp="cp --reflink=auto"        # under btrfs, privilege reflinks
 alias type="type -f"                # Enable func printing on zsh type
 
 alias vim="nvim"                    # Switched to Neovim :D
-alias goyo='_kitty_color goyo_bg 0.7 nvim --cmd "let g:startGoyo = 1"'
+alias goyo='_kitty_color goyo_bg 0.75 nvim --cmd "let g:startGoyo = 1"'
                                     # a simpler editor.
 alias psql="_kitty_color pgcli_bg 0.7 pgcli" # SQL editor
 
