@@ -189,6 +189,15 @@ function gtree() {
     lsd --tree $(while read m; do <<<"-I $m"; done <$REPO_ROOT/.gitignore)
 }
 
+# ASCII colors, useful sometimes
+function asciicols() {
+    for i in {0..255}
+    do
+        print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " \
+            ${${(M)$((i%6)):#3}:+$'\n'}
+    done
+}
+
 # Neovim trigger discipline
 function :qa!() {
     >&2 echo "Shutting down in 10..."
