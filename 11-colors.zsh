@@ -23,4 +23,20 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
 
 [ -f "$HOME/.zsh-colors" ] && source "$HOME/.zsh-colors"
 
+# ASCII colors, useful sometimes
+function colors::ascii() {
+    for i in {0..255}
+    do
+        print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " \
+            ${${(M)$((i%6)):#3}:+$'\n'}
+    done
+}
+
+function colors::rgb() {
+    val="$1"
+    while [[ $(expr length "$val") -lt 3 ]]; do val="0$val"; done
+    col=$(cat $ZSH_CONFIG_PATH/res/colors.csv | grep -F "$val;") # FIXME
+    print -Pn "%K{$1} %k%F{$1}${(l:6::0:)col} %f "
+}
+
 # vim: ft=zsh

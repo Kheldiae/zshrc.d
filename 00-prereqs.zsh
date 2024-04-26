@@ -19,10 +19,8 @@ function __deps::print_missing() {
 }
 
 function __deps::resolve() {
-    if [[ ${#__FAILED_DEPS[@]} -eq 0 ]]
-    then
-        return              # All deps matched
-    fi
+    # All deps matched, no need to do anything else
+    if [[ ${#__FAILED_DEPS[@]} -eq 0 ]]; then return; fi
 
     >&2 echo "The following dependencies are missing:"
     __deps::print_missing
@@ -124,6 +122,7 @@ function __deps::check_optional() {
     __deps::check   bear         bear
     __deps::check   mdcat        mdcat
     __deps::check   jello        jello
+    __deps::check   pgcli        pgcli
 }
 
 # Check if user cloned submodules, and ask if we can do it for them.

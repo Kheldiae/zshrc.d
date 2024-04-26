@@ -20,3 +20,5 @@
     allow = always
 [init]
     defaultBranch = master
+
+# vim: ft=gitconfig
