@@ -54,7 +54,7 @@ extension:
   part: 󰥦
   ppd: 
   x3g: 󰹛        # FlashForge 3D print path
-  srctrlprj:   # Sourcetrail Project
+  srctrlprj: 󱁉  # Sourcetrail Project
   jsonnet: 
   libsonnet: 
   cmd: 
@@ -69,3 +69,4 @@ extension:
   feature: 󱚊    # Cucumber feature books do deserve their icon
   ui:          # Cambalache ui definition files
   cmb:         # Cambalache project files
+  v: 󰿈          # COQ formal proof language files
