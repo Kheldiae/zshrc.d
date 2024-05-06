@@ -1,1 +1,1 @@
-autocmd BufWritePost !jsonnet % > ~/.config/guillotine.json
+autocmd BufWritePost,FileWritePost *.jsonnet !jsonnet % > ~/.config/guillotine.json

@@ -13,10 +13,11 @@ local lib = import './guillotine.libsonnet';
                 'gtk3-icon-browser'),
     lib.Separator(),
     lib.Menu('Logs', 'text-x-generic symbolic', [
-      lib.Command('System',
+      lib.Command('Systemd journal',
                   'emblem-system-symbolic',
                   true,
                   "kitty 'journalctl -eb0'"),
+      lib.Separator(),
     ]),
     lib.Separator(),
     lib.Menu('Services', '', [
