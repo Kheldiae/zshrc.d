@@ -35,8 +35,8 @@ function colors::ascii() {
 function colors::rgb() {
     val="$1"
     while [[ $(expr length "$val") -lt 3 ]]; do val="0$val"; done
-    col=$(cat $ZSH_CONFIG_PATH/res/colors.csv | grep -F "$val;") # FIXME
-    print -Pn "%K{$1} %k%F{$1}${(l:6::0:)col} %f "
+    col=$(cat $ZSH_CONFIG_PATH/res/colors.csv | grep -F "$val;")
+    print -P "%K{$val}  %k%F{$val}${(l:6::0:)col}"
 }
 
 # vim: ft=zsh

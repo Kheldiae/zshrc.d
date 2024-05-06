@@ -20,7 +20,7 @@ local lib = import './guillotine.libsonnet';
     ]),
     lib.Separator(),
     lib.Menu('Services', '', [
-      lib.SystemdService('PostgreSQL Database engine',
+      lib.SystemdService('PostgreSQL',
                          '',
                          'postgresql'),
       lib.Separator(),
