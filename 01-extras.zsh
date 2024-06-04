@@ -56,6 +56,10 @@ function __extras::install() {
         dconf load / < $EXTRAS_CONFIG_PATH/extras/$1
     else
         ln -s $EXTRAS_CONFIG_PATH/extras/$1 $HOME/.config/$1
+        if [[ -e $EXTRAS_CONFIG_PATH/extras/$1/init.zsh ]]
+        then
+            zsh $EXTRAS_CONFIG_PATH/extras/$1/init.zsh
+        fi
     fi
 }
 

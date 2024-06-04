@@ -70,3 +70,4 @@ extension:
   ui:          # Cambalache ui definition files
   cmb:         # Cambalache project files
   v: 󰿈          # COQ formal proof language files
+  rockspec: 󰢱   # Lua utility file
