@@ -11,20 +11,23 @@ local lib = import './guillotine.libsonnet';
                 'audio-x-generic-symbolic',
                 false,
                 'touch $HOME/Musique/*'),
-    lib.Menu('Log journals', 'text-x-generic-symbolic', [
-      lib.Command('Systemd logging journal',
+    lib.Separator(),
+    lib.Menu('Systems journals', 'text-x-generic-symbolic', [
+      lib.Command('Last boot logs',
                   'emblem-system-symbolic',
                   true,
-                  "kitty 'journalctl -eb0'"),  // FIXME
+                  "gnome-terminal -e 'journalctl -eb0'"),
       lib.Separator(),
     ]),
     lib.Separator(),
     lib.Menu('Services', 'preferences-other-symbolic', [
-      lib.SystemdService('PostgreSQL DB',
+      lib.SystemdService('PostgreSQL',
                          'printer-network-symbolic',
                          'postgresql.service'),
-      lib.Separator(),
     ]),
+    lib.SystemdService('RustDesk remote',
+                       'preferences-desktop-remote-desktop-symbolic',
+                       'rustdesk'),
     lib.Separator(),
   ],
 }
