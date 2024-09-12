@@ -49,6 +49,7 @@ alias gitfetch="onefetch --image $c_gitfetch_image --no-color-palette"
 
 alias play="gst-play-1.0"
 
+# Jupyter aliases
 alias ihs="jupyter console --kernel haskell"
 alias icaml="jupyter console --kernel ocaml"
 alias irust="jupyter console --kernel rust"
@@ -63,8 +64,9 @@ alias zplug="LANG=C.UTF-8 zplug"    # Fix for zplug/zplug#419
 alias calc="qalc"
 aliases[=]='noglob qalc -c'         # = shorthand for calculator
 
-# Nixie handling
+# Nixie handling and global Nix aliases
 alias nixie="nix run github:nixie-dev/nixie --"
+alias ni="nix profile install"
 
 # Confort aliases
 alias shut="shutdown now"
