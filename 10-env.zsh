@@ -35,3 +35,5 @@ export XDG_CONFIG_DIRS=$ZSH_CONFIG_PATH/extras:$XDG_CONFIG_DIRS
 
 AUTO_NOTIFY_THRESHOLD=120
 AUTO_NOTIFY_IGNORE+=(ipython tmux nix-shell kitty-color goyo ranger mpv nethogs bat cd)
+
+export NEWPATH=$HOME/.templates
