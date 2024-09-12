@@ -21,13 +21,17 @@ local lib = import './guillotine.libsonnet';
                 true,
                 "gnome-terminal -e 'journalctl -eb0'"),
     lib.Menu('Software logs', '', [
+      lib.Command('PostgreSQL',
+                  'printer-network-symbolic',
+                  true,
+                  "gnome-terminal -e 'journalctl -xeu postgresql.service'"),
       lib.Separator(),
     ]),
     lib.Separator(),
     lib.Menu('Services', 'preferences-other-symbolic', [
       lib.SystemdService('PostgreSQL',
                          'printer-network-symbolic',
-                         'postgresql.service'),
+                         'postgresql'),
     ]),
     lib.SystemdService('RustDesk remote',
                        'preferences-desktop-remote-desktop-symbolic',
