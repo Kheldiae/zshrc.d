@@ -1,6 +1,6 @@
 { description = "Flake for my Zsh meta-config";
 
-  inputs."nixpkgs".url = github:NixOS/nixpkgs;
+  inputs."nixpkgs".url = "github:NixOS/nixpkgs";
 
   outputs = { self, nixpkgs, flake-utils, ... }:
   flake-utils.lib.eachDefaultSystem
@@ -49,7 +49,9 @@
             jq
             fzy
           ];
-      };
+        };
+
+      packages."bootstrap" = pkgs.callPackage ./bootstrap.nix {};
 
       packages."zshrc" = pkgs.writeText "zshrc"
         ''
@@ -103,7 +105,15 @@
         buildInputs = [ self.packages.${system}.optionalDeps ] ++ o.buildInputs;
         installPhase = "${o.installPhase} \\\n  --prefix PATH : ${pkgs.lib.makeBinPath buildInputs}";
       });
+
+      ### Fully offline variant with locked plugins
+      packages."zsh-full" = self.packages.${system}.zsh.overrideAttrs (
+        o: {
+          installPhase = "${o.installPhase} \\\n --set ZPLUG_REPOS ${self.packages.${system}.bootstrap}";
+        });
+      packages."zsh-full-offline" = self.packages.${system}.zsh-full.overrideAttrs (
+        o: {
+          installPhase = "${o.installPhase} \\\n --set ZPLUG_REPOS ${self.packages.${system}.bootstrap}";
+        });
     });
-
-
 }

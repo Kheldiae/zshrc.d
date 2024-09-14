@@ -5,6 +5,7 @@ local lib = import './guillotine.libsonnet';
     loglevel: 'error',
     notificationLevel: 'error',
     icon: 'emblem-system-symbolic',
+    keepMenuOpen: 'switch',
   },
   menu: [
     lib.Command('Refresh music library',
@@ -20,7 +21,7 @@ local lib = import './guillotine.libsonnet';
                 'emblem-system-symbolic',
                 true,
                 "gnome-terminal -e 'journalctl -eb0'"),
-    lib.Menu('Software logs', '', [
+    lib.Menu('Software logs', 'open-menu-symbolic', [
       lib.Command('PostgreSQL',
                   'printer-network-symbolic',
                   true,
@@ -32,6 +33,7 @@ local lib = import './guillotine.libsonnet';
       lib.SystemdService('PostgreSQL',
                          'printer-network-symbolic',
                          'postgresql'),
+      lib.Separator(),
     ]),
     lib.SystemdService('RustDesk remote',
                        'preferences-desktop-remote-desktop-symbolic',
