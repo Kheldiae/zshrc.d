@@ -16,8 +16,6 @@ alias psql="_kitty_color pgcli_bg 0.7 pgcli" # SQL editor
 
 alias bake="bear -- make"           # Make with compile_commands.json
 
-alias ssh='TERM=xterm ssh'
-
 alias nya='kitten'                  # shorthand for kitty ^•ﻌ•^
 
 alias ip6="ip -6"                   # IPv6 shorthand config
