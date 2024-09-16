@@ -4,9 +4,10 @@
 #
 
 function __imgs::ensure_dir() {
-    if [[ -ne $HOME/.local/etc ]]
+    if ! [ $(ls $HOME/.local/etc) ]
     then
         mkdir $HOME/.local/etc
+        >&2 echo "created etc directory"
     fi
 }
 
