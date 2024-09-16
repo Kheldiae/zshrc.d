@@ -16,8 +16,7 @@ alias psql="_kitty_color pgcli_bg 0.7 pgcli" # SQL editor
 
 alias bake="bear -- make"           # Make with compile_commands.json
 
-alias ssh='_kitty_color ssh_bg 0.7 $c_kitty_opacity[`_get_theme`] ssh'
-                                    # blue-tint ssh term
+alias ssh='TERM=xterm ssh'
 
 alias nya='kitten'                  # shorthand for kitty ^•ﻌ•^
 
