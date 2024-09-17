@@ -65,5 +65,8 @@ aliases[=]='noglob qalc -c'         # = shorthand for calculator
 alias nixie="nix run github:nixie-dev/nixie --"
 alias ni="nix profile install"
 
+# Cli-goodies aliases
+alias new="new --"
+
 # Confort aliases
 alias shut="shutdown now"
