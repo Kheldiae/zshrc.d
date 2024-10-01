@@ -37,3 +37,6 @@ AUTO_NOTIFY_THRESHOLD=120
 AUTO_NOTIFY_IGNORE+=(ipython tmux nix-shell kitty-color goyo ranger mpv nethogs bat cd)
 
 export NEWPATH=$HOME/.templates
+
+# Small locale fix
+export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive

@@ -70,3 +70,4 @@ alias new="new --"
 
 # Confort aliases
 alias shut="shutdown now"
+alias dhserve="darkhttpd ."
