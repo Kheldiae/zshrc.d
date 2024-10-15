@@ -107,10 +107,6 @@
       });
 
       ### Fully offline variant with locked plugins
-      packages."zsh-full" = self.packages.${system}.zsh.overrideAttrs (
-        o: {
-          installPhase = "${o.installPhase} \\\n --set ZPLUG_REPOS ${self.packages.${system}.bootstrap}";
-        });
       packages."zsh-full-offline" = self.packages.${system}.zsh-full.overrideAttrs (
         o: {
           installPhase = "${o.installPhase} \\\n --set ZPLUG_REPOS ${self.packages.${system}.bootstrap}";
