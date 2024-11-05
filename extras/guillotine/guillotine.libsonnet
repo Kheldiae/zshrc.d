@@ -33,6 +33,13 @@ local SystemdService(label, icon, name) =
          stop='systemctl stop ' + name + '.service',
          check='systemctl is-active ' + name + '.service');
 
+// TODO add kitty launch
+local LogCmd(service, icon) =
+  Command(service,
+          icon,
+          true,
+          'kitty journalctl -xeu ' + service + '.service');
+
 {
   Separator():: Separator(),
   Command(name, icon, singleInstance, cmd):: Command(name,
@@ -41,4 +48,5 @@ local SystemdService(label, icon, name) =
                                                      cmd),
   Menu(name, icon, content):: Menu(name, icon, content),
   SystemdService(label, icon, name):: SystemdService(label, icon, name),
+  LogCmd(service, icon):: LogCmd(service, icon),
 }
