@@ -38,7 +38,7 @@ local LogCmd(service, icon) =
   Command(service,
           icon,
           true,
-          'kitty journalctl -xeu ' + service + '.service');
+          'kitty journalctl -xu ' + service + '.service');
 
 {
   Separator():: Separator(),
