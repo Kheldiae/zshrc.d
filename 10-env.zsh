@@ -38,5 +38,8 @@ AUTO_NOTIFY_IGNORE+=(ipython tmux nix-shell kitty-color goyo ranger mpv nethogs 
 
 export NEWPATH=$HOME/.templates
 
+# podman utility
+export TMPDIR=/tmp
+
 # Small locale fix
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive

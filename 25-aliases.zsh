@@ -71,3 +71,7 @@ alias new="new --"
 # Confort aliases
 alias shut="shutdown now"
 alias dhserve="darkhttpd ."
+
+# Podman aliases
+alias podman="podman --root=$TMPDIR/containers --storage-driver=overlay "
+alias podman-compose="podman-compose --podman-args=\"--root=$TMPDIR/containers --storage-driver=overlay\""

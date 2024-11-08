@@ -19,16 +19,13 @@ local lib = import './guillotine.libsonnet';
                 'kitty journalctl -eb0'),
     lib.Menu('Software logs', 'open-menu-symbolic', [
       lib.LogCmd('postgresql', 'printer-network-symbolic'),
-      lib.LogCmd('docker', 'system-run-symbolic'),
+      lib.LogCmd('podman', ''),
     ]),
     lib.Separator(),
     lib.Menu('Services', 'system-run-symbolic', [
       lib.SystemdService('PostgreSQL',
                          'printer-network-symbolic',
                          'postgresql'),
-      lib.SystemdService('Docker daemon',
-                         'system-run-symbolic',
-                         'docker'),
     ]),
     lib.SystemdService('RustDesk remote',
                        'preferences-desktop-remote-desktop-symbolic',

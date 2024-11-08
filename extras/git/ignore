@@ -29,3 +29,6 @@ compile_commands.json
 
 # Python execution cache
 __pycache__
+
+# JS specifics
+node_modules
