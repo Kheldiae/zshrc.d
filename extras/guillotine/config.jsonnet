@@ -19,7 +19,7 @@ local lib = import './guillotine.libsonnet';
                 'kitty journalctl -eb0'),
     lib.Menu('Software logs', 'open-menu-symbolic', [
       lib.LogCmd('postgresql', 'printer-network-symbolic'),
-      lib.LogCmd('podman', ''),
+      lib.LogCmd('podman', 'system-run-symbolic'),
     ]),
     lib.Separator(),
     lib.Menu('Services', 'system-run-symbolic', [

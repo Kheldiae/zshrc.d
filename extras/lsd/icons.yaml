@@ -71,3 +71,4 @@ extension:
   cmb:         # Cambalache project files
   v: 󰿈          # COQ formal proof language files
   rockspec: 󰢱   # Lua utility file
+  http: 󰖟       # http request file
