@@ -123,6 +123,7 @@ function __deps::check_optional() {
     __deps::check   mdcat        mdcat
     __deps::check   jello        jello
     __deps::check   pgcli        pgcli
+    __deps::check   darkhttpd    darkhttpd
 }
 
 # Check if user cloned submodules, and ask if we can do it for them.
