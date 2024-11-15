@@ -3,7 +3,7 @@ alias btrfs-ducks="btrfs filesystem du -s --human-readable"
                                     # Uses btrfs version of du
 
 alias ls="lsd --group-dirs=first"   # uber cool ls alternative
-alias tree="lsd --tree"
+alias tree="lsd --tree --ignore-glob=target"
 
 alias cp="cp --reflink=auto"        # under btrfs, privilege reflinks
 
