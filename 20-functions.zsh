@@ -184,8 +184,9 @@ function dsd-play() {
                             # played on unsupported hardware. Signal is not PCM
                             # sound.
 
-function gtree() {
+function gtree() { # FIXME
     local REPO_ROOT=$(git rev-parse --show-toplevel || return 1)
+    # TODO trim useless symbols, they cause lsd to die
     lsd --tree $(while read m; do <<<"-I $m"; done <$REPO_ROOT/.gitignore)
 }
 
