@@ -67,6 +67,7 @@ alias ni="nix profile install"
 
 # Cli-goodies aliases
 alias new="new --"
+alias mkReadme="echo \"$PWD\" > README.md" # Laziness alias
 
 # Confort aliases
 alias shut="shutdown now"

@@ -6,6 +6,7 @@
     glog = log --all --pretty='format:%d %Cgreen%h%Creset %an - %s' --graph
     conf = config -e
     gconf = config --global -e
+    rollback = reset --hard HEAD
 [color]
     ui = auto
 [pull]
