@@ -41,7 +41,7 @@ function auto-ls-onefetch() {
         fi
 
         onefetch --image-protocol kitty --image $gfi --no-color-palette \
-            --disabled-fields churn description
+            --disabled-fields churn description dependencies contributors head created
         git status -s
         echo
     fi

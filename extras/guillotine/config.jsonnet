@@ -27,9 +27,6 @@ local lib = import './guillotine.libsonnet';
                          'printer-network-symbolic',
                          'postgresql'),
     ]),
-    lib.SystemdService('RustDesk remote',
-                       'preferences-desktop-remote-desktop-symbolic',
-                       'rustdesk'),
     lib.Separator(),
   ],
 }

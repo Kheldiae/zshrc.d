@@ -8,11 +8,9 @@ let
 in stdenv.mkDerivation {
   name = "zplug-bootstrap";
   src = emptyDirectory;
-  installPhase = builtins.foldl' (
-    l: r: ''${l}
-          mkdir -p $out/${owner r}
-          cp -r ${repos.${r}} $out/${r}
-          '')
-      "mkdir -p $out"
-      (builtins.attrNames repos);
+  installPhase = builtins.foldl' (l: r: ''
+    ${l}
+              mkdir -p $out/${owner r}
+              cp -r ${repos.${r}} $out/${r}
+  '') "mkdir -p $out" (builtins.attrNames repos);
 }

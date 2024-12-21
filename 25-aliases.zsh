@@ -9,10 +9,10 @@ alias cp="cp --reflink=auto"        # under btrfs, privilege reflinks
 
 alias type="type -f"                # Enable func printing on zsh type
 
-alias vim="nvim"                    # Switched to Neovim :D
-alias goyo='_kitty_color goyo_bg 0.75 nvim --cmd "let g:startGoyo = 1"'
+alias vim="nvim"                    # Reflex alias to avoid confusion
+alias goyo='_kitty_color goyo_bg 0.8 nvim --cmd "let g:startGoyo = 1"'
                                     # a simpler editor.
-alias psql="_kitty_color pgcli_bg 0.7 pgcli" # SQL editor
+alias psql="_kitty_color pgcli_bg 0.8 pgcli" # SQL editor
 
 alias bake="bear -- make"           # Make with compile_commands.json
 
@@ -20,16 +20,19 @@ alias nya='kitten'                  # shorthand for kitty ^•ﻌ•^
 
 alias ip6="ip -6"                   # IPv6 shorthand config
 
-((IS_DARWIN)) || alias open="xdg-open"
-                                    # Think different.
+((IS_DARWIN)) | alias open="xdg-open" # Open utility alias
 
 alias diff="diff --color=auto"
 alias grep="grep --color=auto"      # JUST
 alias zgrep="zgrep --color=auto"    # ADD
 alias fgrep="fgrep --color-auto"    # SOME
 alias egrep="egrep --color=auto"    # COLOUR. grep is way better with highlight.
-alias jel="jello <"
 
+# Json aliases
+alias jello="jello <"
+alias jel="jello -l <"
+
+# Process genocide aliases
 alias murder="kill -9"
 alias pmurder="pkill -9"
 alias murderall="killall -9"        # SIGKILL ftw

@@ -6,7 +6,11 @@ result
 
 # user private aliases
 26-my-aliases.zsh
+99-dirs.zsh
 
 # extras logs
 extras/pgcli
 !extras/pgcli/config
+
+# icons
+icons/*.svg

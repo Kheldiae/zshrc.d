@@ -9,13 +9,13 @@ c_fetch_image[light]="$HOME/.local/etc/fetch_image_light.png"
 c_gitfetch_nix_shell_image="$HOME/.local/etc/gitfetch_nix_shell_image.png"
 c_gitfetch_image="$HOME/.local/etc/gitfetch_image.png"
 
-c_kitty_opacity[dark]="0.7"
-c_kitty_opacity[light]="0.7"
+# Opacity values for _kitty_color
+c_kitty_opacity[dark]="0.8"
+c_kitty_opacity[light]="0.8"
 
-colors_dark[goyo_bg]="#404552"
-colors_dark[ssh_bg]="#544635"
+# Colorscheme
 colors_light[goyo_bg]="#d9d9da"
-colors_light[ssh_bg]="#6a665e"
+colors_dark[goyo_bg]="#404552"
 colors_dark[pgcli_bg]="#4444444"
 colors_light[pgcli_bg]="#444444"
 
