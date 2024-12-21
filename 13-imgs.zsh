@@ -10,16 +10,19 @@ function __icons::ensure_dir() {
     fi
 }
 
-function __icons::clone() {
+function __icons::setup() {
     __icons::ensure_dir
-    for icon in $($ZSH_CONFIG_PATH/icons/*.png)
+    for icon in $(find $ZSH_CONFIG_PATH/icons/*.png -type f | grep png)
     do
-        cp $ZSH_CONFIG_PATH/icons/$icon $HOME/.local/etc
+        cp $icon $HOME/.local/etc
         >&2 echo "copied $icon"
     done
 }
 
-__icons::clone
-unfunction __icons::ensure_dir
-unfunction __deps::check
-touch $HOME/.zsh_has_icons
+if ! [[ -f $HOME/.zsh_has_icons ]]
+then
+    __icons::setup
+    unfunction __icons::ensure_dir
+    unfunction __icons::setup
+    touch $HOME/.zsh_has_icons
+fi
