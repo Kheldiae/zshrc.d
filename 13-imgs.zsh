@@ -22,7 +22,7 @@ function __icons::setup() {
 if ! [[ -f $HOME/.zsh_has_icons ]]
 then
     __icons::setup
-    unfunction __icons::ensure_dir
-    unfunction __icons::setup
     touch $HOME/.zsh_has_icons
 fi
+unfunction __icons::ensure_dir
+unfunction __icons::setup

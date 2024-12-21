@@ -1,4 +1,5 @@
 [alias]
+    # remove this if you don't have gitg installed
     g = !flatpak run org.gnome.gitg
     adi = add *
     cam = commit -am
@@ -6,6 +7,7 @@
     glog = log --all --pretty='format:%d %Cgreen%h%Creset %an - %s' --graph
     conf = config -e
     gconf = config --global -e
+    revert = reset --hard
     rollback = reset --hard HEAD
 [color]
     ui = auto
