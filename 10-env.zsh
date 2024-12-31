@@ -38,6 +38,7 @@ AUTO_NOTIFY_IGNORE+=(ipython tmux nix-shell kitty-color goyo ranger mpv nethogs 
 
 # podman utility
 export TMPDIR=/tmp
+export CONTAINERS_ROOT=$HOME/.local/share/containers
 
 # Small locale fix
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
