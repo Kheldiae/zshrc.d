@@ -1,10 +1,10 @@
-99-dirs.zsh
 *.zwc
 
 .nixie
 result
 
 # user private aliases
+21-my-functions.zsh
 26-my-aliases.zsh
 99-dirs.zsh
 

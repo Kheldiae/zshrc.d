@@ -10,9 +10,9 @@ alias cp="cp --reflink=auto"        # under btrfs, privilege reflinks
 alias type="type -f"                # Enable func printing on zsh type
 
 alias vim="nvim"                    # Reflex alias to avoid confusion
-alias goyo='_kitty_color goyo_bg 0.8 nvim --cmd "let g:startGoyo = 1"'
+alias goyo='_kitty_color goyo_bg 0.75 nvim --cmd "let g:startGoyo = 1"'
                                     # a simpler editor.
-alias psql="_kitty_color pgcli_bg 0.8 pgcli" # SQL editor
+alias psql="_kitty_color pgcli_bg 0.75 pgcli" # SQL editor
 
 alias bake="bear -- make"           # Make with compile_commands.json
 
