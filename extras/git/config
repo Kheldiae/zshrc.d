@@ -5,10 +5,12 @@
     cam = commit -am
     stat = status -s
     glog = log --all --pretty='format:%d %Cgreen%h%Creset %an - %s' --graph
+    # config aliases
     conf = config -e
     gconf = config --global -e
+    # revert aliases
     revert = reset --hard
-    rollback = reset --hard HEAD
+    rollback = reset --hard HEAD~1
 [color]
     ui = auto
 [pull]

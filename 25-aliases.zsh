@@ -28,18 +28,17 @@ alias zgrep="zgrep --color=auto"    # ADD
 alias fgrep="fgrep --color-auto"    # SOME
 alias egrep="egrep --color=auto"    # COLOUR. grep is way better with highlight.
 
-# Json aliases
-alias jello="jello <"
-alias jel="jello -l <"
+# Json reading aliases
+alias jello="jello <" # regular jello
+alias jel="jello -l <" # nljson jello
 
 # Process genocide aliases
 alias murder="kill -9"
 alias pmurder="pkill -9"
 alias murderall="killall -9"        # SIGKILL ftw
 
+# Null terminator
 alias anihilate='shred -f -n 40 -z' # Rewrite perms, shred 40 passes and zero out
-
-alias trash="gio trash"             # Use desktop trash in the terminal
 
 alias userctl="systemctl --user"    # Manage user-mode systemd units
 

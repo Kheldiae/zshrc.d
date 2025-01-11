@@ -47,6 +47,7 @@ function _kitty_color() {
 function bat() {
     local BAT_THEME
     export BAT_THEME=$(if [[ `_get_theme` == "light" ]]; then <<< "gruvbox-light"; else <<< "gruvbox-dark"; fi)
+    # TODO swap theme for daeser
     if [[ -v PYTHON_FOR_BAT ]]
     then
         $PYTHON_FOR_BAT $ZSH_CONFIG_PATH/extras/scripts/bat.py "$@" --italic-text always

@@ -58,6 +58,7 @@ function __extras::install() {
         ln -s $EXTRAS_CONFIG_PATH/extras/$1 $HOME/.config/$1
         if [[ -e $EXTRAS_CONFIG_PATH/extras/$1/init.zsh ]]
         then
+            # use of init script to fine-tune the extra config
             zsh $EXTRAS_CONFIG_PATH/extras/$1/init.zsh
         fi
     fi
