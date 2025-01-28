@@ -18,3 +18,4 @@ If you want to tweak it but keep the ability to use updates through `git pull`, 
 
 - `21-my-functions.zsh`
 - `26-my-aliases.zsh`
+- `~/.zsh_colors`

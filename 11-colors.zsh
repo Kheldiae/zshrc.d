@@ -3,9 +3,9 @@ declare -A c_kitty_opacity
 
 declare -A colors_light colors_dark
 
+# Icons paths
 c_fetch_image[dark]="$HOME/.local/etc/fetch_image_dark.png"
 c_fetch_image[light]="$HOME/.local/etc/fetch_image_light.png"
-
 c_gitfetch_nix_shell_image="$HOME/.local/etc/gitfetch_nix_shell_image.png"
 c_gitfetch_image="$HOME/.local/etc/gitfetch_image.png"
 
