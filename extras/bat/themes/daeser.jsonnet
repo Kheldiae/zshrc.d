@@ -1,7 +1,7 @@
 local lib = import './theme.libsonnet';
 
 lib.Theme('Daeser (Dark)',
-          'Custom theme inspired by Daeser and Gruvbox for nvim',
+          'Custom theme inspired by Daeser and Gruvbox',
           'kheldae (https://github.com/Khelda)',
           [{
             settings: {
@@ -181,4 +181,35 @@ lib.Theme('Daeser (Dark)',
               'support.constant',
             ]),
             settings: { foreground: '#db3869b' },
+          }, {
+            name: 'Language Constants Punctuation',
+            scope: 'variable.language punctuation.definition.variable',
+            settings: { foreground: '#d3869b' },
+          }, {
+            name: 'User-Defined Constants',
+            scope: lib.mkOpts([
+              'entity.name.constant',
+              'variable.other.constant',
+            ]),
+            settings: { foreground: '#fabd2f' },
+          }, {
+            name: 'Escaped Characters',
+            scope: lib.mkOpts([
+              'constant.character.escape',
+              'constant.character.escaped',
+              'constant.character.quoted',
+              'constant.other.character-class.escape',
+            ]),
+            settings: { foreground: '#fb4934' },
+          }, {
+            name: 'Invalids and Illegals',
+            scope: 'invalid',
+            settings: { foreground: '#fb4934' },
+          }, {
+            name: 'Inner Scopes of Invalids and Illegals',
+            scope: lib.mkOpts([
+              'invalid keyword.other.custom-property.prefix',
+              'invalid support.type.custom-property.name',
+            ]),
+            settings: { foreground: '#fbf1c7' },
           }])

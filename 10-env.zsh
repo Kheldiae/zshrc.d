@@ -8,6 +8,7 @@
 [[ -v IN_NIX_SHELL ]] && eval "$shellHook"
                             # Evaluate nix-shell/nix develop hook
 
+# Shell history settings
 export HISTFILE=~/.cache/zsh-history
 export HISTSIZE=1000
 export SAVEHIST=1000
