@@ -14,7 +14,7 @@ function _get_theme() {
     then
         ( defaults read -g AppleInterfaceStyle 2>/dev/null || echo 'light' ) | tr '[:upper:]' '[:lower:]'
     else
-        echo 'dark'
+        echo 'dark' # failsafe value
     fi
 }
 
@@ -72,7 +72,7 @@ function duf() {
 
 function fetch() {
     [[ $TERM == xterm-kitty ]] && kitty @resize-os-window --height 32
-    neofetch --source ${c_fetch_image[`_get_theme`]} --bar_colors
+    neofetch --source ${c_fetch_image} --bar_colors
 }
 
 function ifetch() {
